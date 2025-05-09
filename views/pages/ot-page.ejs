@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+
+        <!--*******************
+        Preloader start
+    ********************-->
+        <%- include('../partials/preloader.ejs') %>
+            <!--*******************
+        Preloader end
+    ********************-->
+
+            <!--**********************************
+        Main wrapper start
+    ***********************************-->
+            <div id="main-wrapper">
+
+                <!--**********************************
+            Nav header start
+        ***********************************-->
+                <%- include('../partials/nav-header.ejs') %>
+                    <!--**********************************
+            Nav header end
+        ***********************************-->
+
+                    <!--**********************************
+            Chat box start
+        ***********************************-->
+                        <!--**********************************
+            Chat box End
+        ***********************************-->
+
+                        <!--**********************************
+            Header start
+        ***********************************-->
+                        <%- include('../partials/header.ejs') %>
+
+                            <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+                            <!--**********************************
+            Sidebar start
+        ***********************************-->
+                            <%- include('../partials/sidebar.ejs') %>
+                                <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+                                <!--**********************************
+            Content body start
+        ***********************************-->
+                                <div class="content-body">
+                                    <div class="container-fluid ot-page">
+                                        
+                                        <div class="row page-titles">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item active"><a
+                                                        href="javascript:void(0)">បុគ្គលិក</a></li>
+                                                <li class="breadcrumb-item">OT</li>
+                                            </ol>
+                                        </div>
+
+                                        <!-- row -->
+
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <div class="col-xl-6 col-md-12">
+
+                                                        <div class="card mx-2" id="take-ot-action"
+                                                            style="transition: 0.3s;"
+                                                            onclick="window.location.href = '/request-ot'">
+                                                            <div
+                                                                class="card-header border-0 d-flex justify-content-between">
+                                                                <h3 class="pb-0">ស្ថានភាពអនុម័ត</h3>
+                                                                <h5 id="today-date" class="fs-4">ថ្ងៃនេះ</h5>
+                                                            </div>
+                                                            <div class="card-body py-0 px-0 ">
+                                                                <div class="row">
+                                                                    <div class="col-3 ps-5  position-relative pb-4">
+                                                                        <h4 class="text-purple py-0 ">បានស្នើសុំ</h4>
+                                                                        <div class="style-request pt-0 py-0">
+                                                                            <div class="display-6 pt-0 text-purple fw-bold"
+                                                                                id="total_request">21</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-3 pb-4 ps-4">
+                                                                        <h4 class="text-success pb-0 ">អនុញ្ញាត្តិ</h4>
+                                                                        <div class="style-approved pt-0 py-0">
+                                                                            <div class="display-6 pt-0 text-success fw-bold"
+                                                                                id="approved">4</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-3 pb-4">
+                                                                        <h4 class="text-warning  pb-0 ">រង់ចាំពិនិត្យ
+                                                                        </h4>
+                                                                        <div class="style-pending pt-0">
+                                                                            <div class="display-6 pt-0 text-warning fw-bold"
+                                                                                id="pending">10</div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-3 pb-4">
+                                                                        <h4 class="text-danger pb-0">បដិសេធ</h4>
+                                                                        <div class="style-reject pt-0">
+                                                                            <div class="display-6 pt-0 text-danger fw-bold"
+                                                                                id="rejected">6</div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-6 col-md-12">
+                                                        <div class="card ">
+                                                            <div class="card-header border-0 d-flex align-items-center">
+                                                                <h3 class="pb-0">សង្ខេបការបន្ថែមម៉ោង</h3>
+                                                                <select class="text-dark" id="month-ot"
+                                                                    style="border: none; background: transparent;">
+                                                                    <option value="">March</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="card-body py-0 px-0">
+                                                                <div class="d-flex justify-content-center ps-4">
+                                                                    <div class="col-4 pb-4  position-relative  ">
+                                                                        <h4 class="text-success py-0 ">អនុញ្ញាត្តិ</h4>
+                                                                        <div class="style-approved pt-0">
+                                                                            <div class="display-6 pt-0 text-success fw-bold"
+                                                                                id="total_approved">0</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-4 pb-4  position-relative  ">
+                                                                        <h4 class="text-danger py-0 ">បដិសេធ</h4>
+                                                                        <div class="style-reject pt-0">
+                                                                            <div class="display-6 pt-0 text-danger fw-bold"
+                                                                                id="total_rejected">0</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-4 pb-4 px-0 position-relative  ">
+                                                                        <h4 class="text-purple py-0">ចំនួនថែមម៉ោងសរុប
+                                                                        </h4>
+                                                                        <div class="style-request pt-0">
+                                                                            <div class="display-6 pt-0 text-purple fw-bold"
+                                                                                id="total_ot_hour">30</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="card  pb-3">
+                                                    <div
+                                                        class="card-header w-100 pb-0 d-flex justify-content-between border-0">
+                                                        <div
+                                                            class="ot mb-0 w-100 d-flex align-items-center justify-content-between">
+
+                                                            <div
+                                                                class="shows d-flex justify-content-around position-relative">
+                                                            </div>
+                                                            <div
+                                                                class="left-item d-flex align-items-center  justify-content-evenly gap-3">
+                                                                <div class="d-flex align-items-center position-relative">
+                                                                    <input type="search" class="search" id="search_ot_text" placeholder="ស្វែងរក..." style="padding-left: 35px;">
+                                                                    <i class="fa-solid fa-magnifying-glass position-absolute" style="left: 15px"></i>
+                                                                </div>
+                                                                <input type="date" class="search px-3" name="" id="search_ot_date" style="width: auto !important;">
+                                                                <select name="" class="search px-3" id="search_ot_status" style="width: auto !important;">
+                                                                    <option value="" selected>ទាំងអស់</option>
+                                                                    <option value="1">កំពុងរង់ចាំ</option>
+                                                                    <option value="2">អនុញ្ញាត្តិ</option>
+                                                                    <option value="3">បដិសេធ</option>
+                                                                </select>
+                                                            </div> 
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="card-body card-style">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-bordered table-responsive-sm"
+                                                                border="1">
+                                                                <thead class="">
+                                                                    <tr class="tr-head bg-primary-light">
+                                                                        <th class="ps-4">ល.រ</th>
+                                                                        <th class="">ឈ្មោះ បុគ្គលិក</th>
+                                                                        <th>កាលបរិច្ឆេទ</th>
+                                                                        <th>ចំនួនម៉ោង</th>
+                                                                        <th>ម៉ោងចូល</th>
+                                                                        <th>ម៉ោងចេញ</th>
+                                                                        <th>ស្ថានភាព</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody id="OverTimeBody"></tbody>
+                                                                
+                                                            </table>
+                                                        </div>
+
+                                                        <div class="amount mt-2 ps-4">
+                                                            <p class="fs-4 fw-medium totalValue"></p>
+                                                        </div>
+
+                                                        <!-- Pagination -->
+                                                        <nav aria-label="Page navigation" class="w-100 pb-3">
+                                                            <div id="pagination"></div>
+                                                        </nav>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+                                <!--**********************************
+            Footer start
+        ***********************************-->
+                                <%- include('../partials/footer.ejs') %>
+                                    <!--**********************************
+            Footer end
+        ***********************************-->
+
+                                    <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+                                    <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+            </div>
+            <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+            <!--**********************************
+        Scripts
+    ***********************************-->
+            <!-- Required vendors -->
+  
+            <!-- Required vendors -->
+            <%- include('../partials/logoutScr.ejs') %>
+                <script src="/vendor/momentjs/moment.js"></script>
+                <script src="/js/overtime.js"></script>
+
+    </body>
+
+</html>

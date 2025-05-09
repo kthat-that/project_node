@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <!-- Load HTML5 QR Code library locally -->
+    <script src="/vendor/html5-qrcode/html5-qrcode.min.js" defer></script>
+    <!-- SweetAlert2 for UI feedback -->
+    <link rel="stylesheet" href="/vendor/sweetalert2/dist/sweetalert2.min.css">
+    <script src="/vendor/sweetalert2/dist/sweetalert2.all.min.js" defer></script>
+    <!-- Custom styles -->
+    <style>
+        #qr-reader {
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px;
+            height: 360px;
+            margin: 0 auto;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            height: 250px;
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        .overlay .scan-frame {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            top: 0;
+            left: 0;
+        }
+
+        .overlay .scan-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay .scan {
+            width: 100%;
+            height: 1.5px;
+            background-color: cyan;
+            box-shadow: 0px 0px 8px 10px rgba(0, 255, 255, 0.404);
+            animation: scanning 1.5s linear alternate infinite;
+        }
+
+        @keyframes scanning {
+            0% {
+                transform: translateY(0px);
+            }
+
+            100% {
+                transform: translateY(250px);
+            }
+        }
+    </style>
+    <%- include('../../partials/head.ejs') %>
+</head>
+
+<body class="home-page-user">
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <%- include('../../partials/preloader.ejs') %>
+        <!--*******************
+        Preloader end
+    ********************-->
+
+        <!--**********************************
+        Main wrapper start
+    ***********************************-->
+        <div id="main-wrapper">
+
+            <!--**********************************
+            Nav header start
+        ***********************************-->
+            <%- include('../../partials/nav-header.ejs') %>
+                <!--**********************************
+            Nav header end
+        ***********************************-->
+
+                <!--**********************************
+            Chat box start
+        ***********************************-->
+
+                    <!--**********************************
+            Chat box End
+        ***********************************-->
+
+                    <!--**********************************
+            Header start
+        ***********************************-->
+                    <div class="header">
+                        <div class="header-content">
+                            <a href="/" class="brand-logo">
+                                <img src="/images/logo/white-logo.png " id="logo" alt="Logo" style="width: 120px;">
+                            </a>
+                            <nav class="navbar navbar-expand">
+                                <div class="collapse navbar-collapse justify-content-between">
+                                    <div class="header-left">
+                                        <div class="dashboard_bar">
+                                            User
+                                        </div>
+                                    </div>
+                                    <%- include('../../partials/header-user.ejs') %>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+                    <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <%- include('../../partials/sidebar.ejs') %>
+                        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+                        <!--**********************************
+            Content body start
+        ***********************************-->
+                        <div class="container">
+                            <h1>QR Code Detector</h1>
+
+                            <div class="qr-box">
+                                <div class="box info" id="info">
+                                    <img src="https://img.icons8.com/3d-fluency/94/info.png" alt="info" />
+                                    <span></span>
+                                </div>
+                                <div class="reader-container">
+                                    <div id="reader"></div>
+                                    <img id="changeCamera" src="https://img.icons8.com/stickers/100/switch-camera.png"
+                                        alt="switch-camera" />
+                                </div>
+                                <div id="qr-reader-results"></div>
+                                <button id="startButton">Start scanning</button>
+                            </div>
+
+                        </div>
+                        <!-- <div id="qr-reader" style="display: none;"></div> -->
+
+                        <%- include('../../partials/logoutScr.ejs') %>
+                            <script src="/js/auth/profile.js"></script>
+                            <script src="/vendor/chart/chart.js"></script>                            <script src="js/sidebar-user.js"></script>
+                            <script src="/vendor/html5-qrcode/html5-qrcode.min.js"></script>
+                            <script src="/js/user/home-scanner.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs') %>
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <%- include('../partials/preloader.ejs') %>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+		<%- include('../partials/nav-header.ejs') %>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+		
+		<!--**********************************
+            Chat box start
+        ***********************************-->
+		<!--**********************************
+            Chat box End
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <%- include('../partials/header.ejs') %>
+                    
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <%- include('../partials/sidebar.ejs')  %>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles ">
+                    <div class="d-flex justify-content-between">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item py-0 main-bread active"><a href="/leave-management">ស្នើរច្បាប់</a></li>
+                            <li class="breadcrumb-item py-0" id="waiting">រង់ចាំពិនិត្យ</li>
+                            <li class="breadcrumb-item py-0" id="approved">អនុញ្ញាត្តិ</li>
+                            <li class="breadcrumb-item py-0" id="rejected">បដិសេធ</li>
+                        </ol>
+                        <input class="border-0 form-control" style="width: 130px;" id="sort_date" type="date">
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class=" nav-pills  d-flex justify-content-between" id="pills-tab" role="tablist">
+                            <div class="d-flex nav_tab">
+                                <a href="#" class="me-3" role="presentation">
+                                    <button id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" aria-controls="pills-home" aria-selected="true" type="button" class="btn  btn-primary text-white">រង់ចាំពិនិត្យ</button>
+                                </a>
+                                <a href="#" class="me-3" role="presentation">
+                                    <button id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" class="btn btn-outline-success  ">អនុញ្ញាត្តិ</button>
+                                </a>
+                                <a href="#" class="me-2" role="presentation">
+                                    <button id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" class="btn btn-outline-danger ">បដិសេធ</button>
+                                </a> 
+
+                            </div>
+                            <div class="d-flex justify-content-end h-leave">
+                                <a href="/history-leave">
+                                    <button type="button" class="btn btn-outline-primary px-1"><span class="me-1"><i class="fa-solid fa-eye"></i></span> មើលប្រវត្តិស្នើរ</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- row -->
+
+                <div class="tab-content"  id="pills-tabContent">
+                    <div class="tab-1 tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+                        <div class="row " >
+                            <div class="col-xl-12 " >
+                                <div class="row" id="pending">
+                                 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class=" tab-2 tab-pane  fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                        <div class="row">
+                            <div class="col-xl-12 " >
+                                <div class="row" id="approve">
+                                  
+                                
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+
+                    
+                    <div class=" tab-3 tab-pane  fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+                        <div class="row" id="reject">
+                       
+                        </div>
+                       
+                    </div>
+                </div>
+               
+
+                
+
+               
+            </div>
+        </div>
+        <%- include('../partials/footer.ejs') %>
+     
+    </div>
+        <!-- Required vendors -->
+        <%- include('../partials/logoutScr.ejs') %>
+        <script src="/js/leave/list.js" ></script>
+        <script src="js/overscript/leave-manage.js"></script>
+   
+</body>
+</html>

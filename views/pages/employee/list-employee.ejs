@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../../partials/head.ejs') %>
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <%- include('../../partials/preloader.ejs') %>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+		<%- include('../../partials/nav-header.ejs') %>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+		
+		<!--**********************************
+            Chat box start
+        ***********************************-->
+		
+		<!--**********************************
+            Chat box End
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <%- include('../../partials/header.ejs') %>
+                    
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <%- include('../../partials/sidebar.ejs')  %>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+                    <!-- <div class="row ">
+                        <div class="col-xl-3 col-lg-6 col-md-6 col-6 position-relative ">
+                            <div class="card pb-4" style="border-left: 5px solid #3A86FF;">
+                                <div class="card-body mt-0 pt-3 px-4 pb-0">
+                                    <div class="d-flex justify-content-between">
+                                        <h2 class="fs-2 fw-bold text-primary" id="total_employee"></h2>
+                                        <div class="user-icon">
+                                            <i class="fa-solid fa-user-group text-primary bg-primary-light p-3 rounded-circle"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <a href="#" class="fs-4 text-primary stretched-link ">បញ្ចីបុគ្គលិក</a>
+                                        <p>សរុបៈ​ <span>30</span>នាក់</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col-xl-3 col-lg-6 col-md-6 col-6 position-relative ">
+                            <div class="card pb-4">
+                                <div class="card-body mt-0 pt-3 px-4 pb-0">
+                                    <div class="d-flex justify-content-between">
+                                        <h2 class="fs-2 fw-bold text-primary" id="total_employee"></h2>
+                                        <div class="user-icon">
+                                            <i class="fa-solid fa-user-group text-danger bg-danger-light p-3 rounded-circle"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <a href="/attendanceEmp" class="fs-4 text-danger stretched-link ">បញ្ចីវត្តមាន</a>
+                                        <p>សរុបៈ​ <span>30</span>នាក់</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col-xl-3 col-lg-6 col-md-6 col-6 position-relative ">
+                            <div class="card pb-4">
+                                <div class="card-body mt-0 pt-3 px-4 pb-0">
+                                    <div class="d-flex justify-content-between">
+                                        <h2 class="fs-2 fw-bold text-primary" id="total_employee"></h2>
+                                        <div class="user-icon">
+                                            <i class="fa-solid fa-user-group text-success bg-success-light p-3 rounded-circle"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <a href="/payroll" class="fs-4 text-success stretched-link ">ប្រាក់បៀវត្សន៍</a>
+                                        <p>សរុបៈ​ <span>30</span>ដេប៉ាតឺម៉ង់</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col-xl-3 col-lg-6 col-md-6 col-6 position-relative ">
+                            <div class="card pb-4">
+                                <div class="card-body mt-0 pt-3 px-4 pb-0">
+                                    <div class="d-flex justify-content-between">
+                                        <h2 class="fs-2 fw-bold text-primary" id="total_employee"></h2>
+                                        <div class="user-icon">
+                                            <i class="fa-solid fa-user-group text-info bg-info-light p-3 rounded-circle"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <a href="/ot-page" class="fs-4 text-info stretched-link ">ម៉ោងបន្ថែម</a>
+                                        <p>សរុបៈ​ <span>30</span>នាក់</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div> -->
+                <div class="row page-titles">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item active"><a href="">បុគ្គលិក</a></li>
+						<li class="breadcrumb-item"><a href="">បញ្ចីបុគ្គលិក</a></li>
+					</ol>
+                </div>
+                 <!-- row -->
+                <div class="row">
+                    <div class="col-12">
+                             
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="card pb-3">  
+                            <div class="card-body p-0 px-4">
+                                <div class="department d-flex align-items-center justify-content-between ot p-4 mt-2">
+                                    <div class="shows d-flex justify-content-around position-relative">
+                                        
+                                        </div>
+                                        <div class="left-item d-flex align-items-center pb-2 justify-content-evenly ">
+                                            <input type="search" class="search me-4" id="fsearch" placeholder="ស្វែងរក..." >
+                                        
+                                            <button class="btn btn-primary" id="cardAll" style="border-radius: 10px !important; padding: 0.700rem 1.2rem;">
+                                                <span><i class="bi bi-credit-card" ></i></span>&nbsp; កាតទាំងអស់
+                                            </button>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-responsive px-5">
+									<table class="table table-bordered table-responsive-sm">
+                                        <thead>
+                                            <tr class="bg-primary-light ">
+                                                
+                                                <th class="ps-3">ល.រ</th>
+                                                <th >ឈ្មោះ</th>
+												<th >Status</th>
+                                                <th >Email</th>
+												<th >តួនាទី</th>
+                                                <th >ដេប៉ាតឺម៉ង់</th>
+												<th >Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>  
+                                                <td class="ps-3">1</td>
+                                                <td><div class="d-flex align-items-center"><img src="images/avatar/1.jpg" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">Dr. Jackson</span></div></td>
+												<td><div class="text-success  action-style"><i class="fa fa-circle  fs-6"></i>
+													Action
+												</div></td>
+                                                <td><div class="d-flex align-items-center"></div> Product Designer </td>
+												<td class="">example@example.com	</td>
+												<td>Education</td>
+                                                <td>
+													<div class="d-flex">
+														<a href="#" class="btn btn-primary shadow btn-xs sharp rounded-1 me-1" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModalCenter"><i class="fas fa-pencil-alt"></i></a>
+														<a href="#" class="btn btn-danger shadow btn-xs sharp rounded-1" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModalCenter1"><i class="fa fa-trash"></i></a>
+													</div>
+												</td>
+                                            </tr>
+											<tr>
+                                                <td class="ps-3">2</td>
+                                                <td><div class="d-flex align-items-center"><img src="images/avatar/2.jpg" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">Dr. Jackson</span></div></td>
+												<td><div class="text-success  action-style"><i class="fa fa-circle  fs-6"></i>
+													Action
+												</div></td>
+                                                <td><div class="d-flex align-items-center"></div> Product Designer </td>
+												<td>example@example.com	</td>
+												<td>Education</td>
+                                                <td>
+													<div class="d-flex">
+														<a href="#" class="btn btn-primary shadow btn-xs sharp rounded-1 me-1"><i class="fas fa-pencil-alt"></i></a>
+														<a href="#" class="btn btn-danger shadow btn-xs sharp rounded-1"><i class="fa fa-trash"></i></a>
+													</div>
+												</td>
+                                            </tr>
+											<tr>
+                                                <td class="ps-3">3</td>
+                                                <td><div class="d-flex align-items-center"><img src="images/avatar/3.jpg" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">Dr. Jackson</span></div></td>
+												<td><div class="text-success  action-style"><i class="fa fa-circle  fs-6"></i>
+													Action
+												</div></td>
+                                                <td><div class="d-flex align-items-center"></div> Product Designer </td>
+												<td>example@example.com	</td>
+												<td>Education</td>
+                                                <td>
+													<div class="d-flex">
+														<a href="#" class="btn btn-primary shadow btn-xs sharp rounded-1 me-1"><i class="fas fa-pencil-alt"></i></a>
+														<a href="#" class="btn btn-danger shadow btn-xs sharp rounded-1"><i class="fa fa-trash"></i></a>
+													</div>
+												</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ps-3">2</td>
+                                                <td><div class="d-flex align-items-center"><img src="images/avatar/2.jpg" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">Dr. Jackson</span></div></td>
+												<td><div class="text-success  action-style"><i class="fa fa-circle"></i>
+													Action
+												</div></td>
+                                                <td><div class="d-flex align-items-center"></div> Product Designer </td>
+												<td>example@example.com	</td>
+												<td>Education</td>
+                                                <td>
+													<div class="d-flex">
+														<a href="#" class="btn btn-primary shadow btn-xs sharp rounded-1 me-1" ><i class="fas fa-pencil-alt"></i></a>
+														<a href="#" class="btn btn-danger shadow btn-xs sharp rounded-1"><i class="fa fa-trash"></i></a>
+													</div>
+												</td>
+                                            </tr>
+											<tr class="">
+                                                
+                                                <td class="ps-3">3</td>
+                                                <td><div class="d-flex align-items-center"><img src="images/avatar/3.jpg" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">Dr. Jackson</span></div></td>
+												<td><div class="text-success  action-style"><i class="fa fa-circle  fs-6"></i>
+													Action
+												</div></td>
+                                                <td><div class="d-flex align-items-center"></div> Product Designer </td>
+												<td>example@example.com	</td>
+												<td>Education</td>
+                                                <td>
+													<div class="d-flex">
+														<a href="#" class="btn btn-primary shadow btn-xs sharp rounded-1 me-1"><i class="fas fa-pencil-alt"></i></a>
+														<a href="#" class="btn btn-danger shadow btn-xs sharp rounded-1"><i class="fa fa-trash"></i></a>
+													</div>
+												</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="px-4">  
+                                    <div class="amount mt-2 ps-4">
+                                      <p class="fs-4 fw-medium totalValue"></p>
+                                    </div>
+                                    <nav aria-label="Page navigation w-100 pb-3">
+                                      <ul class="pagination w-100 d-flex align-items-center justify-content-between">
+                                        <div class="ps-4">
+                                          <li class="page-item" id="prevBtn">
+                                            <a class="page-link btnPrev" data-page="1"><span class="text-dark"><i class="fa-solid fa-arrow-left"></i></span>&nbsp; ថយក្រោយ</a>
+                                          </li>
+                                        </div>
+                                        <div class="d-flex justify-content-center align-items-center" id="pageNumbers">
+                                          <!-- Pagination items will be injected here -->
+                                        </div>
+                                        <div class="pe-4">
+                                          <li class="page-item" id="nextBtn">
+                                            <a class="page-link btnNext" data-page="1">បន្ត&nbsp;<span class="text-dark"><i class="fa-solid fa-arrow-right"></i></span></a>
+                                          </li>
+                                        </div>
+                                      </ul>
+                                    </nav>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+
+        <!-- modal create -->
+        <div class="modal fade" id="exampleModalCenter">
+            <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">កែតម្រូវព័ត៌មានបុគ្គលិក</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="updateEmp">
+                            <div class="row">
+                                <div class="col-6 ">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="d-flex justify-content-center mb-4 ">
+                                                <img src="/upload/default.png" id="cropped"
+                                                    class="img-fluid rounded-circle position-relative p-1" style="width: 130px;border: 5px solid #b7d8ff;" alt="">
+                                                <div class="align-items-center d-flex justify-content-center position-absolute "> 
+                                                    <label for="profile"
+                                                        class="fw-medium text-white bg-primary  change-img "
+                                                        role="button"> 
+                                                        <i class="bi bi-pencil"></i>
+                                                    </label>
+                                                    <input type="file"  class="form-control bg-transparent d-none"
+                                                        id="profile" accept=".png, .jpeg, .jpg">
+                                                        <div class="modal  fade" id="cropper1">
+                                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header border-0 pb-0 mb-0 mt-3 ">
+                                                                        <h5 class="modal-title fs-3 ">កែតម្រូវព័ត៌មានបុគ្គលិក</h5>
+                                                                        <button type="button" class="btn-close fs-4 " data-bs-dismiss="modal">
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body mt-0 pt-0 ">
+                                                                        <div class="modal-content w-100 rounded-0">
+
+                                                                            <img src="" class="hidden   mb-4  " id="croppedImage" alt="" />
+                                                                        </div>
+
+                                                                    <div class="modal-footer d-flex justify-content-end px-1">
+                                                                        <button type="button" class="btn btn-outline-danger py-0 me-2 light button-style"
+                                                                            data-bs-dismiss="modal">បោះបង់</button>
+                                                                        <button type="button" class="btn btn-outline-success py-0 button-style" id="cropButton"   data-bs-dismiss="modal">រក្សាទុក</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>       
+                                            </div>  
+                                        </div>
+                                        <div class="col-12 mb-3">
+                                            <h5 class="modal-title">ព័ត៌មានផ្ទាល់ខ្លួន</h5>
+                                        </div>
+                                        <div class="col-6 ">
+                                            <div class="form-group ">
+                                                <label for="firstName">គោត្តនាម</label>
+                                                <input type="text" class="form-control" id="firstName"
+                                                    placeholder="ហិន">
+                                            </div>
+                                        </div>
+                                        <div class="col-6 ">
+                                            <div class="form-group ">
+                                                <label for="lastName">Last Name</label>
+                                                <input type="text" class="form-control" id="lastName"
+                                                    placeholder="Last Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-6  mt-3">
+                                            <div class="form-group ">
+                                                <label for="gender">Gender</label>
+                                                <select class="form-control" id="gender">
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 mt-3">
+                                            <div class="form-group">
+                                                <label for="birthDate">Birth Date</label>
+                                                <input type="date" class="form-control" id="birthDate">
+                                            </div>
+                                        </div>
+                                        <div class="col-12  mt-3">
+                                            <div class="form-group">
+                                                <label for="numPhone">Phone</label>
+                                                <input type="text" class="form-control" id="phone"
+                                                    placeholder="01234567">
+                                            </div>
+                                        </div>
+                                        <div class="col-12  mt-3">
+                                            <div class="form-group">
+                                                <label for="address">Address</label>
+                                                <textarea class="form-control" id="address"
+                                                    rows="3">ផ្លូវ៥១២ ភូមិ១ បឹងកក់ទី១ ទួលគោក ភ្នំពេញ</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row ">
+                                        <div class="col-12 mb-3">
+                                            <h5 class="modal-title">ព័ត៌មានការងារ</h5>
+                                        </div>
+                                        <div class="col-12 ">
+                                            <div class="form-group ">
+                                                <label for="firstName">នាយកដ្ឋាន</label>
+                                                <select class="form-control" id="department">
+                                                    <!-- <option value="">អប់រំ</option>
+                                                    <option value="អប់រំ">អប់រំ</option> -->
+
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <div class="form-group ">
+                                                <label for="position">មុខតំណែង</label>
+                                                <select class="form-control" id="position">
+                                                    <!-- <option value="គ្រូបង្រៀន">គ្រូបង្រៀន</option>
+                                                    <option value="អប់រំ">អប់រំ</option> -->
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12  mt-3">
+                                            <div class="form-group ">
+                                                <label for="payroll">ប្រាក់បៀវត្សន៍</label>
+                                                <select class="form-control" id="payroll">
+                                                    <option value="300">300</option>
+                                                    <option value="500">500</option>
+                                                    <option value="600">600</option>
+                                                    <option value="700">700</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <div class="form-group">
+                                                <label for="birthDate">ថ្ងៃចូលធ្វើការ</label>
+                                                <input type="hidden" id="old_cv">
+                                                <input type="hidden" id="id">
+                                                <input type="hidden" id="old_avatar">
+                                                <input type="date" class="form-control" id="hireDate">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <div class="form-group">
+                                                <label for="numPhone">CV</label>
+                                                <div class="input-group form-control">
+                                                    <div class="form-file border-0">
+                                                        <input type="file"
+                                                            class="form-file-input form-control" id="newCv" accept=".pdf">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger py-0 light button-style"
+                                    data-bs-dismiss="modal">បោះបង់</button>
+                                <button type="submit" id="btn-close" class="btn btn-primary py-0 button-style" >រក្សាទុក</button>
+                            </div>
+                        </form>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+
+        <!-- modal delete -->
+        <div class="modal fade" id="exampleModalCenter1">
+            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header border-0 mt-2">
+                        <div class="badge-danger light rounded px-3 py-2">
+                            <i class="bi bi-exclamation-circle fs-4 "></i>
+                        </div> 
+                    </div>
+                    <div class="modal-body pt-0 mt-0">
+                        <h4 class="modal-title">លុបទិន្នន័យបុគ្គលិក</h4>
+                        <input type="hidden" name="" id="getId">
+                        <p class="mb-0 pt-2">តើអ្នកប្រាកដថាចង់លុបបុគ្គលិកនេះទេ? សកម្មភាពនេះមិនអាចត្រឡប់វិញបានទេ។ </p>
+                    </div>
+                    <div class="px-4 d-flex mb-3">
+                        <button type="button" class="btn btn-danger me-2 w-50 light button-style py-0" data-bs-dismiss="modal">បោះបង់</button>
+                        <button type="button" id="deleteEmp" class="btn btn-primary w-50 button-style py-0" data-bs-dismiss="modal">លុប</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="exampleModalCenter3">
+            <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">មើលលម្អិតកាតផ្ទាល់ខ្លួន</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal">
+                        </button>
+                    </div>
+                    <div class="modal-body align-items-center d-flex justify-content-center">
+                        <img src="images/card-emp.png" class="w-75" alt="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary text-white fs-4"
+                            data-bs-dismiss="modal"> <i class="bi bi-credit-card-2-front-fill me-3 fs-3"></i>Print Card</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      <!-- modal delete -->
+      <div class="modal fade" id="exampleModalCenter5">
+        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-0 mt-2">
+                    <div class="badge-danger light rounded px-3 py-2">
+                        <i class="bi bi-exclamation-circle fs-4 "></i>
+                    </div>
+                    
+                </div>
+                <input type="hidden" name="" id="resetPw">
+                <div class="modal-body pt-0 mt-0">
+                    <h4 class="modal-title">កែប្រែលេខសម្ងាត់</h4>
+                    <p class="mb-0 pt-2"> សកម្មភាពនេះមិនអាចត្រឡប់វិញបានទេ។ </p>
+                </div>
+                <div class="px-4 d-flex mb-3">
+                    <button type="button" class="btn btn-danger me-2 w-50 light button-style py-0" data-bs-dismiss="modal">បោះបង់</button>
+                    <button type="button" id="reset" class="btn btn-primary w-50 py-0 button-style" data-bs-dismiss="modal">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <%- include('../../partials/footer.ejs') %>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+        
+    </div>
+    <div class="modal fade" id="read-information">
+        <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">ព័ត៌មានលម្អិត</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-center mb-4 ">
+                                    <img src="public/images/avatar/1.png" id="ravatar"
+                                        class="img-fluid rounded-circle position-relative" style="width: 130px;" alt="">
+                                          
+                                </div>  
+                            </div>
+                            <div class="col-6 ">
+                                <div class="row">
+                                    
+                                    <div class="col-12 mb-4 fw-bold text-center">
+                                        <h4 class="modal-title">ព័ត៌មានផ្ទាល់ខ្លួន</h4>
+                                    </div>
+                                    <div class="col-6 ">
+                                        <div class="form-group ">
+                                            <label for="firstName">គោត្តនាម-នាម</label>
+                                            <div class="form-control">
+                                                <p id="rfname">កិប​ និកា</p>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-6 ">
+                                        <div class="form-group ">
+                                            <label for="gender">ភេទ</label>
+                                            <div class="form-control">
+                                                <p id="rgender">ស្រី</p>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-6  mt-3">
+                                        <div class="form-group ">
+                                            <label for="phone">លេខទូរស័ព្ទ</label>
+                                            <div class="form-control">
+                                                <p id="rnumber">00123467</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 mt-3">
+                                        <div class="form-group">
+                                            <label for="birthDate">ថ្ងៃ ខែ ឆ្នាំកំណើត</label>
+                                            <div class="form-control">
+                                                <p id="rdob">3-10-25</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12  mt-3">
+                                        <div class="form-group">
+                                            <label for="email">អ៊ីមែល</label>
+                                            <div class="form-control">
+                                                <p id="remail">philennheik@gmail.com</p>
+                                            </div>
+                                        
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-6">
+
+                                <div class="row ">
+                                    <div class="col-12 mb-4 fw-bold text-center ">
+                                        <h4 class="modal-title">ព័ត៌មានការងារ</h4>
+                                    </div>
+                                    <div class="col-12 ">
+                                        <div class="form-group ">
+                                            <label for="firstName">នាយកដ្ឋាន</label>
+                                            <div class="form-control">
+                                                <p id="rdepartment">អប់រំ</p>
+                                            </div>                                 
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mt-3">
+                                        <div class="form-group ">
+                                            <label for="position">មុខតំណែង</label>
+                                            <div class="form-control">
+                                                <p id="rposition">គ្រូបង្រៀន</p>
+                                            </div>  
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-12 mt-3">
+                                        <div class="form-group">
+                                            <label for="birthDate">ថ្ងៃចូលធ្វើការ</label>
+                                            <div class="form-control">
+                                                <p id="rhire">10-23-2024</p>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-12  mt-3">
+                                <div class="form-group">
+                                    <label for="address">អាស័យដ្ខាន</label>
+                                    <div class="form-control">
+                                        <p id="raddress">ផ្លូវ៥១២ ភូមិ១ បឹងកក់ទី១ ទួលគោក ភ្នំពេញ</p>
+                                    </div>  
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <%- include('../../partials/logoutScr.ejs') %>
+    <script src="/vendor/cropper/cropper.min.js"></script>
+    <script src="/js/auth/cropper.js"></script>
+    <script src="/js/user/list-employee.js"></script>
+
+</body>
+</html>

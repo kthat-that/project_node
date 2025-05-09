@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="robots" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template">
+    <meta property="og:title" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template">
+    <meta property="og:description" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template">
+    <meta property="og:image" content="https://fillow.dexignlab.com/xhtml/social-image.png">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- PAGE TITLE HERE -->
+    <title>Admin Dashboard</title>
+
+    <!-- FAVICONS ICON -->
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> -->
+    <style>
+        .authincation .img {
+            width: 1320px;
+            height: 762px;
+            z-index: -1;
+            /* object-fit: cover; */
+        }
+
+        .icon {
+            width: 25px;
+            height: 15px;
+            /* background-color: brown; */
+            border-right: 1px solid rgb(240, 240, 248);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #00000086;
+            margin-left: 6px;
+            font-weight: 500;
+            /* border-radius: 6px;  */
+        }
+
+        .form-control {
+            padding-left: 38px !important;
+        }
+    </style>
+</head>
+
+<body class="vh-80"
+    style="background-color: #ffffff; background-image: url(images/login-img.jpg); background-size: cover; background-position: bottom right;">
+
+
+    <div class="authentication  h-100" style="z-index: 89;">
+        <div class="container h-100 position-relative">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-6">
+                    <div class="">
+                        <div class="row ">
+                            <div class="col-xl-12">
+                                <div class="auth-form authForm">
+                                    <img src="images/logo/logo(1).png" alt="" width="150">
+                                    <h4 class="text-center mb-4 fs-2 my-3 fw-bold">ផ្លាស់ប្ដូរលេខសម្ងាត់</h4>
+                                    <form id="changepw">
+                                        <div class="mb-2">
+                                            <label class="mb-1 fs-3 fw-light"><strong>លេខសម្ងាត់ថ្មី</strong></label>
+                                            <div class="d-flex align-items-center ">
+                                                <i class="bi bi-lock position-absolute icon "></i>
+                                                <input type="password" class="form-control" placeholder="លេខសម្ងាត់ថ្មី"
+                                                    id="password">
+                                            </div>
+                                            <p style="color: #DC3545; margin: 0; text-align: end; visibility: hidden;"
+                                                id="passCheck">សូមបញ្ជូលលេខសម្ងាត់ 8 ខ្ទង់ឡើង</p>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="mb-1 fs-3 fw-light"><strong>បញ្ចាក់លេខសម្ងាត់</strong></label>
+                                            <div class="d-flex align-items-center ">
+                                                <i class="bi bi-lock position-absolute icon "></i>
+                                                <input type="password" class="form-control"
+                                                    placeholder="បញ្ជាក់លេខសម្ងាត់" id="cpassword">
+                                            </div>
+                                            <p style="color: #DC3545; margin: 0; text-align: end; visibility: hidden;"
+                                                id="passCheck1">សូមបញ្ជូលលេខដូចគ្នា</p>
+                                        </div>
+
+                                        <button type="submit" style="cursor: pointer;"
+                                            class="btn btn-primary btn-block fs-3 py-0 fw-light">បញ្ចូន</button>
+                                    </form>
+                                    <!-- <div class="new-account mt-3">
+                                        <p>Don't have an account? <a class="text-primary" href="page-register.html">Sign up</a></p>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <img src="images/change-pass.png" class="img object-fit-cover w-100 h-100" alt="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/js/config.js"></script>
+    <script src="/vendor/sweetalert2/dist/sweetalert2@11.js"></script>
+    <script src="/js/auth/toast.js"></script>
+    <script src="/js/auth/auth.js"></script>
+    <script> let id = " <%= user[0].id %>";
+            let role = " <%= user[0].role %>";
+    </script>
+    <script src="/js/auth/changepass.js"></script>
+   
+</body>
+
+</html>

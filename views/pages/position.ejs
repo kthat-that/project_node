@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+
+        <!--*******************
+        Preloader start
+    ********************-->
+        <%- include('../partials/preloader.ejs') %>
+            <!--*******************
+        Preloader end
+    ********************-->
+
+            <!--**********************************
+        Main wrapper start
+    ***********************************-->
+            <div id="main-wrapper">
+
+                <!--**********************************
+            Nav header start
+        ***********************************-->
+                <%- include('../partials/nav-header.ejs') %>
+                    <!--**********************************
+            Nav header end
+        ***********************************-->
+
+                    <!--**********************************
+            Chat box start
+        ***********************************-->
+                        <!--**********************************
+            Chat box End
+        ***********************************-->
+
+                        <!--**********************************
+            Header start
+        ***********************************-->
+        <%- include('../partials/header.ejs') %>
+
+                        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+                        <!--**********************************
+            Sidebar start
+        ***********************************-->
+                        <%- include('../partials/sidebar.ejs') %>
+                            <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+                            <!--**********************************
+            Content body start
+        ***********************************-->
+                            <div class="content-body">
+                                <div class="container-fluid position-style">
+
+                                    <div class="row page-titles">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item active"><a
+                                                    href="javascript:void(0)">Dashboard</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript:void(0)">មុខដំណែង</a></li>
+                                        </ol>
+                                    </div>
+                                    <!-- row -->
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="card p-0">
+                                                <div
+                                                    class="card-header w-100 pb-0 d-flex justify-content-between border-0">
+                                                    <div
+                                                        class="ot w-100 d-flex align-items-center justify-content-between">
+
+                                                        <div
+                                                            class="shows d-flex justify-content-around position-relative">
+                                                           
+                                                        </div>
+                                                        <div
+                                                            class="left-item d-flex align-items-center pb-2 justify-content-evenly ">
+                                                            
+                                                            <div class="created bg-primary text-white w-100 p-3" onclick="loadDepartment()"
+                                                                data-bs-toggle="modal" data-bs-target="#createModal">
+                                                                <i class="bi bi-plus"></i> បង្កើតមុខតំណែង
+                                                            </div>
+                                                            <!-- Modal -->
+                                                            <div class="modal modal-create fade mb-4" id="createModal"
+                                                                tabindex="-1" aria-labelledby="editModalLabel"
+                                                                aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content mb-4">
+                                                                        <div class="modal-header">
+                                                                            <h1 class="modal-title fs-3 fw-medium"
+                                                                                id="editModalLabel">បង្កើតមុខតំណែង</h1>
+                                                                            <button type="button" class="btn-close"
+                                                                                data-bs-dismiss="modal"
+                                                                                aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="modal-body pb-3 border-0">
+                                                                            <form action="">
+                                                                                <div class="mb-3">
+                                                                                    <label for="department"
+                                                                                        class="form-label fs-5">ដេប៉ាតឺម៉ង់</label>
+                                                                                    <select name="" id="department_id" class="form-control bg-transparent fs-5"></select>
+                                                                                </div>
+                                                                                <div class="mb-3">
+                                                                                    <label for="positioninput"
+                                                                                        class="form-label fs-5">មុខតំណែង</label>
+                                                                                    <input type="text"
+                                                                                        class="form-control bg-transparent fs-5"
+                                                                                        id="positioninput"
+                                                                                        placeholder="មុខតំណែង">
+                                                                                </div>
+                                                                                <div class="mb-3 form-group">
+                                                                                    <label for="message-text"
+                                                                                        class="col-form-label fs-5">Discription:</label>
+                                                                                    <textarea class="form-control fs-5"
+                                                                                        id="message-text" rows="5"
+                                                                                        style="height: 120px;"
+                                                                                        placeholder="ទំនួលខុសត្រូវ"></textarea>
+                                                                                </div>
+
+
+                                                                            </form>
+                                                                        </div>
+                                                                        <div
+                                                                            class="modal-footer foot-button border-0 d-flex justify-content-center mb-4">
+                                                                            <button type="button"
+                                                                                class="btn btn-danger  text-center fs-5"
+                                                                                data-bs-dismiss="modal"> <span
+                                                                                    class="me-3 text-center"><i
+                                                                                        class="fa-solid fa-x"></i></span>បោះបង់</button>
+                                                                            <button type="button"
+                                                                                class="btn btn-primary text-center fs-5"
+                                                                                onclick="CreatePosition()">
+                                                                                <span class="me-3 text-center "><i
+                                                                                        class="fa-solid fa-plus"></i></span>បង្កើត</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="card-body card-style">
+                                                    <div class="table-responsive">
+                                                        <table class="table  table-bordered table-responsive-sm"
+                                                            border="1">
+                                                            <thead href="javascript:void()" class="bg-primary-light">
+                                                                <tr>
+                                                                    <th class="ps-4">ល.រ</th>
+                                                                    <th>មុខដំណែង</th>
+                                                                    <th>ដេប៉ាតឺម៉ង់</th>
+                                                                    <th>បង្កើត</th>
+                                                                    <th>បច្ចុប្បន្នភាព</th>
+                                                                    <th>កែតម្រូវ</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="tbl_position"></tbody>
+                                                        </table>
+                                                    </div>
+
+                                                    <div class="amount mt-2 d-flex pb-0">
+                                                        <p class="fs-4 fw-medium me-2">មុខតំណែងសរុប​</p> <span
+                                                            class=" amount-position ">05</span>
+                                                    </div>
+
+                                                    <!-- <nav aria-label="Page navigation w-100 pb-3">
+                                                        <ul
+                                                            class="pagination w-100 d-flex align-items-center justify-content-between">
+                                                            <div class="ps-4">
+                                                                <li class="page-item disabled previous ">
+                                                                    <a class="page-link text-dark"><span
+                                                                            class="text-dark"><i
+                                                                                class="fa-solid fa-arrow-left"></i></span>&nbsp;
+                                                                        ថយក្រោយ</a>
+                                                                </li>
+                                                            </div>
+                                                            <div
+                                                                class="d-flex justify-content-center align-items-center">
+                                                                <li class="page-item"><a class="page-link"
+                                                                        href="#">1</a></li>
+                                                                <li class="page-item"><a class="page-link"
+                                                                        href="#">2</a></li>
+                                                                <li class="page-item"><a class="page-link"
+                                                                        href="#">.</a></li>
+                                                                <li class="page-item"><a class="page-link"
+                                                                        href="#">.</a></li>
+                                                                <li class="page-item"><a class="page-link"
+                                                                        href="#">8</a></li>
+                                                                <li class="page-item"><a class="page-link"
+                                                                        href="#">9</a></li>
+                                                            </div>
+                                                            <div class="pe-4">
+                                                                <li class="page-item next">
+                                                                    <a class="page-link" href="#">បន្ត&nbsp; <span
+                                                                            class="text-dark"><i
+                                                                                class="fa-solid fa-arrow-right"></i></span></a>
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+                                                    </nav> -->
+                                                </div>
+                                                <!-- Delete Modal -->
+                                                <div class="modal style-modal fade mb-4 style-modal" id="deleteModal" tabindex="-1">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content mb-4">
+                                                            <div class="modal-body pb-0 border-0">
+                                                                <div class="">
+                                                                    <span class="fs-1 pb-2 "><i
+                                                                            class="fa-solid fa-circle-exclamation"></i></span>
+                                                                    <h3 class="fs-3 pb-0">លុបទិន្នន័យបុគ្គលិក</h3>
+                                                                    <p class="pt-0 mt-0 fs-4">
+                                                                        តើអ្នកប្រាកដថាចង់លុបបុគ្គលិកនេះទេ?
+                                                                        សកម្មភាពនេះមិនអាចត្រឡប់វិញបានទេ។</p>
+                                                                    <input type="hidden" name=""
+                                                                        id="delete_position_id">
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer border-0 d-flex mb-4">
+                                                                <button type="button"
+                                                                    class="btn btn-outline-dark  text-center"
+                                                                    data-bs-dismiss="modal"> បោះបង់</button>
+                                                                <button type="button" class="btn btn-danger text-center"
+                                                                    onclick="DeletePosition()"> លុប</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Edit Modal -->
+                                                <div class="modal fade mb-4" id="editModal" tabindex="-1"
+                                                    aria-labelledby="editModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content mb-4">
+                                                            <div class="modal-header">
+                                                                <h1 class="modal-title fs-3 fw-medium"
+                                                                    id="editModalLabel">កែតម្រូវមុខតំណែង</h1>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body pb-3 border-0">
+                                                                <form action="">
+                                                                    <div class="mb-3">
+                                                                        <label for="positioninput"
+                                                                            class="form-label">មុខតំណែង</label>
+                                                                        <input type="text"
+                                                                            class="form-control bg-transparent fs-5"
+                                                                            id="position_name" placeholder="គ្រូបង្រៀន">
+                                                                        <input type="hidden" name=""
+                                                                            id="edit_position_id">
+                                                                    </div>
+                                                                    <div class="mb-3 form-group">
+                                                                        <label for="message-text"
+                                                                            class="col-form-label">Discription:</label>
+                                                                        <textarea class="form-control fs-5"
+                                                                            id="position_description" rows="5"
+                                                                            style="height: 120px;"
+                                                                            placeholder="បង្រៀនសិស្ស"></textarea>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <div class="modal-footer border-0 d-flex mb-4">
+                                                                <button type="button"
+                                                                    class="btn btn-danger  text-center"
+                                                                    data-bs-dismiss="modal"> <span
+                                                                        class="me-3 text-center"><i
+                                                                            class="fa-solid fa-x"></i></span>បោះបង់</button>
+                                                                <button type="button"
+                                                                    class="btn btn-primary text-center"
+                                                                    onclick="editPosition()"> <span
+                                                                        class="me-3 text-center"><i
+                                                                            class="fa-solid fa-download"></i></span>រក្សាទុក</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+
+                </div>
+            </div>
+            </div>
+
+
+
+            <!--**********************************
+            Footer start
+        ***********************************-->
+            <%- include('../partials/footer.ejs') %>
+                <!--**********************************
+            Footer end
+        ***********************************-->
+
+            <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+                <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+                </div>
+                <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+                <!--**********************************
+        Scripts
+    ***********************************-->
+                <!-- Required vendors -->
+        <script src="/vendor/momentjs/moment.js"></script>
+        <%- include('../partials/logoutScr.ejs') %>
+        <script src="/js/position.js"></script>
+    </body>
+
+</html>

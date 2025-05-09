@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../../partials/head.ejs') %>
+        <!-- Google Charts -->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+        <!-- jQuery (Ensure it's loaded if using jQuery) -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+    <!--*******************
+        Preloader start
+    ********************-->
+    <%- include('../../partials/preloader.ejs') %>
+        <!--*******************
+        Preloader end
+    ********************-->
+
+
+        <!--**********************************
+        Main wrapper start
+    ***********************************-->
+        <div id="main-wrapper">
+
+            <!--**********************************
+            Nav header start
+        ***********************************-->
+            <%- include('../../partials/nav-header.ejs') %>
+                <!--**********************************
+            Nav header end
+        ***********************************-->
+
+                <!--**********************************
+            Chat box start
+        ***********************************-->
+                
+                    <!--**********************************
+            Chat box End
+        ***********************************-->
+
+                    <!--**********************************
+            Header start
+        ***********************************-->
+        <%- include('../../partials/header.ejs') %>
+
+                    <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+                    <!--**********************************
+            Sidebar start
+        ***********************************-->
+                    <%- include('../../partials/sidebar.ejs') %>
+                        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+                        <!--**********************************
+            Content body start
+        ***********************************-->
+                        <div class="content-body">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="profile card card-body px-3 pb-4  pb-0">
+                                            <div class="profile-head">
+                                                <div class="photo-content">
+                                                    <div class="cover-photo rounded"></div>
+                                                </div>
+                                               
+                                                <div class="profile-info">
+                                                    <div class="d-flex justify-content-center mb-4 ">
+                                                        <img src="/upload/<%= user[0].avatar %>" id="cropped"
+                                                            class="img-fluid rounded-circle position-relative"
+                                                            style="max-width: 125px;" alt="">
+                                                        <div class="align-items-center d-flex justify-content-center position-absolute " >
+                                                            <label for="profile"
+                                                                class="fw-medium text-black change-img change-img1"
+                                                                role="button" >
+                                                                <i class="bi bi-camera-fill"></i>
+                                                            </label>   
+                                                            <input type="file" class="form-control bg-transparent d-none"
+                                                            id="profile">
+                                                         <!-- modal create -->
+                                                         <div class="modal  fade" id="cropper1">
+                                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header border-0 pb-0 mb-0 mt-3 ">
+                                                                        <h5 class="modal-title fs-3 ">កែតម្រូវព័ត៌មានបុគ្គលិក</h5>
+                                                                        <button type="button" class="btn-close fs-4 " data-bs-dismiss="modal">
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body mt-0 pt-0 " >
+                                                                        <div class="modal-content w-100 rounded-0" >
+                
+                                                                            <img src="" class="hidden   mb-4  " id="croppedImage" alt="" />
+                                                                        </div>
+                
+                                                                    <div class="modal-footer d-flex justify-content-end px-1">
+                                                                        <button type="button" class="btn btn-outline-danger py-0 me-2 light button-style"
+                                                                            data-bs-dismiss="modal">បោះបង់</button>
+                                                                        <button type="button" class="btn btn-outline-success py-0 button-style" id="cropButton"   data-bs-dismiss="modal">រក្សាទុក</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                
+                                                        </div>
+                                                    </div>    
+                                                    <div class="profile-details pt-2">
+                                                        <div class="profile-name ms-3 pt-2">
+                                                            <span class=" bg-success-light rounded px-3 align-items-center  py-1 text-success " style="background-color: rgb(218, 255, 220);"><i
+                                                                class="bi bi-record-fill  "></i> Active
+                                                            </span>
+                                                            <h2 class="text-primary mb-0 fw-bold pt-1"><%= user[0].first_name %> <%= user[0].last_name %></h2>
+                                                            <p class="fs-4 py-0 position">អ្នកអភិវឌ្ឍគេហទំព័រ</p>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                            <div class="custom-tab-1 px-3 pb-4  pb-0">
+                                                <ul class="nav nav-tabs">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" data-bs-toggle="tab" href="#profile1">
+                                                            ព័ត៌មានផ្ទាល់ខ្លួន</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" data-bs-toggle="tab" href="#attendance"></i>
+                                                            វត្តមាន</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" data-bs-toggle="tab"
+                                                            href="#atten-history">ប្រវត្តិសុំច្បាប់</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" data-bs-toggle="tab"
+                                                            href="#payroll">ប្រាក់បៀវត្ស</a>
+                                                    </li>
+
+                                                </ul>
+                                                <div class="tab-content">
+                                                    <div class="tab-pane fade show active" id="profile1" role="tabpanel">
+                                                        <div class="row">
+                                                            <div class="col-6 mt-5 ">
+                                                                <h3 class="pb-4">ព័ត៌មានផ្ទាល់ខ្លួន</h3>
+                                                                <div class="card card-body bg-white shadow  z-3">
+                                                                    <table class="table">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>គោត្តនាម</td>
+                                                                                <td>:</td>
+                                                                                <td><%- user[0].first_name %></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>នាម</td>
+                                                                                <td>:</td>
+                                                                                <td> <%- user[0].last_name %></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td >ភេទ</td>
+                                                                                <td>:</td>
+                                                                                <td class="gender">ស្រី</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>ថ្ងៃ ខែ ឆ្នាំ កំណើត</td>
+                                                                                <td>:</td>
+                                                                                <td class="dob">១៨ តុលា ២០០០</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>លេខទូរសព្ទ</td>
+                                                                                <td>:</td>
+                                                                                <td class="phone">097627263</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>អាស័យដ្ឋាន</td>
+                                                                                <td>:</td>
+                                                                                <td class="address">បឹងកក់១ ទួលគោក ភ្នំពេញ
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6 mt-5 ">
+                                                                <h3 class="pb-4">ព័ត៌មានការងារ</h3>
+                                                                <div class="card card-body bg-white shadow  z-3">
+                                                                    <table class="table ">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>ដេប៉ាតឺម៉ង់</td>
+                                                                                <td>:</td>
+                                                                                <td class="dep">ហ៊ន</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>មុខតំណែង</td>
+                                                                                <td>:</td>
+                                                                                <td class="position">ចាន់មុនីរ័ត្ន</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>ប្រាក់បៀវត្សន៍</td>
+                                                                                <td>:</td>
+                                                                                <td class="salary">ស្រី</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>ថ្ងៃចូលធ្វើការ</td>
+                                                                                <td>:</td>
+                                                                                <td class="hire">១៨ តុលា ២០០០</td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="attendance">
+                                                        <div class="row">
+                                                            <div class="col-7 mt-5">
+                                                                <!-- <h3 class="pb-4">ព័ត៌មានផ្ទាល់ខ្លួន</h3> -->
+                                                                <h3 class=" pb-4">បញ្ជីវត្តមាន</h3>
+                                                                <div
+                                                                    class="card card-body bg-white shadow align-items-center">
+                                                                    <table class="table table-bordered" id="attendanceTable">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>ល.រ</th>
+                                                                                <th>ចូលធ្វើការ</th>
+                                                                                <th>ចេញពីធ្វើការ</th>
+                                                                                <th>ស្ថានភាព</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                        </tbody>
+                                                                    </table>
+                                                                    <div class="w-100 ">
+                                                                        <div class="totalValue ms-2  fs-5 mb-4"></div>
+                                                                        <nav aria-label="Page navigation d-flex justify-content-between w-100 ">
+                                                                           
+                                                                            <ul class=" ms-0" id="pagination"></ul>
+                                                                            
+                                                                        </nav>
+                                                                    </div>
+                                                                   
+                                                                </div>
+                                                            </div>
+                                                           
+                                                            <div class="col-5" >
+                                                                <div class="mt-5">
+                                                                    <h3 class="mb-4">ក្រាបទិន្ន័យ</h3>
+                                                                    <div class="card shadow ">
+                                                                        <div class="col-md-12 w-100 ">
+                                                                            <h4 class="text-center pt-4">Performance attendance របស់អ្នក!</h4> 
+                                                                            <!-- <p class="ps-4">ពី 2025-03-01 ដល់ 2025-03-13</p> -->
+                                                                            <!-- <div id="donutChart" style="height: 300px;" ></div> -->
+                                                                            <div class="chart-container">
+
+                                                                                <canvas id="donutChart1"></canvas>
+                                                                            </div>
+                                                                            <div class="legend pb-4">
+                                                                                <div class=" flex-column me-3">
+                                                                                    <div>
+                                                                                        <span class="approved"></span>
+                                                                                        <div class="flex-column px-2">
+                                                                                            <p
+                                                                                                class="m-0 p-0 text-success">
+                                                                                                ល្អ</p>
+                                                                                            <strong
+                                                                                                class="display-5 fw-bold py-0 text-success"  id="full-Day"></strong>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class=" flex-column me-4">
+                                                                                    <div>
+                                                                                        <span class="pending"></span>
+                                                                                        <div class="flex-column px-2">
+                                                                                            <p
+                                                                                                class="m-0 p-0 text-warning">
+                                                                                                មកយឺត</p>
+                                                                                            <strong
+                                                                                                class="display-5 fw-bold py-0 text-warning" id="late"></strong>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                
+                                                                                <div class=" flex-column me-3">
+                                                                                    <div>
+                                                                                        <span class="rejected"></span>
+                                                                                        <div class="flex-column px-2">
+                                                                                            <p
+                                                                                                class="m-0 p-0 text-danger">
+                                                                                                អវត្តមាន</p>
+                                                                                            <strong
+                                                                                                class="display-5 fw-bold py-0 text-danger" id="absent"></strong>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                
+                                                                                <div class=" flex-column ">
+                                                                                    <div>
+                                                                                        <span class="permision"></span>
+                                                                                        <div class="flex-column px-2">
+                                                                                            <p
+                                                                                                class="m-0 p-0 text-primary">
+                                                                                                សុំច្បាប់</p>
+                                                                                            <strong
+                                                                                                class="display-5 fw-bold py-0 text-primary" id="permission">1</strong>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+
+                                                    <div class="tab-pane  fade" id="atten-history">
+                                                        <div class="row">
+                                                            <div class="col-8 mt-5 ">
+                                                                <div class="d-flex justify-content-between">
+                                                                    <h3 class="pt-1">ប្រវត្តិសុំច្បាប់</h3>
+                                                                    <div>
+                                                                        <select name="" id="filter" class="select_stlye form-select pe-2">
+                                                                            <option value="Filter" selected>Filter</option>
+                                                                            <option value="pending" id="Pending"> </option>
+                                                                            <option value="approve" id="Approved"> </option>
+                                                                            <option value="reject" id="Rejected"> </option>
+                                                                        </select>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="list-group  mt-3" id="list_group">
+                                                                    <div class="card shadow px-4 mb-2">
+                                                                        <div
+                                                                            class="d-flex justify-content-between align-items-center">
+                                                                            <div>
+                                                                                <i
+                                                                                    class="bi bi-pencil-square text-primary  me-2"></i>
+                                                                                <span class="fw-bold"></span>
+                                                                                <p class="text-muted small mb-0" id="sart_date"> <span id="end_date"></span></p>
+                                                                            </div>
+                                                                            <div class="text-end pt-3">
+                                                                                <div class="status text-danger fw-bold" id="status">
+                                                                                    </div>
+                                                                                <p id="reason"></p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <div class="mt-5">
+                                                                    <h3 class="mb-4">ក្រាបទិន្ន័យ</h3>
+                                                                    <div class="card shadow">
+                                                                        <div class="col-md-12 w-100">
+                                                                            <h4 class="text-center pt-4">Performance Leave របស់អ្នក!</h4> 
+                                                                            <!-- <p class="ps-4">ពី 2025-03-01 ដល់ 2025-03-13</p> -->
+                                                                            <div class="chart-container">
+                                                                                <canvas id="donutChart"></canvas>
+                                                                            </div>
+                                                                            <div class="legend pb-4">
+                                                                                <div class="flex-column me-3">
+                                                                                    <div>
+                                                                                        <span class="approved"></span>
+                                                                                        <div class="flex-column px-2">
+                                                                                            <p class="m-0 p-0 text-success">Approved</p>
+                                                                                            <strong class="display-4 fw-bold py-0" id="approve"> </strong>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="flex-column me-3">
+                                                                                    <div>
+                                                                                        <span class="rejected"></span>
+                                                                                        <div class="flex-column px-2">
+                                                                                            <p class="m-0 p-0 text-danger">Rejected</p>
+                                                                                            <strong class="display-4 fw-bold py-0" id="reject"></strong>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="flex-column">
+                                                                                    <div>
+                                                                                        <span class="pending"></span>
+                                                                                        <div class="flex-column px-2">
+                                                                                            <p class="m-0 p-0 text-warning">Pending</p>
+                                                                                            <strong class="display-4 fw-bold py-0" id="pending"></strong>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div> 
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="tab-pane fade" id="payroll">
+                                                        <div class="row">
+                                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                <h3 class="mt-5">​ប្រាក់បៀវត្សប្រចាំខែ</h3>
+                                                                <div class="d-flex align-items-center">
+                                                                    <input type="date" id="paydatePicker" class="form-control w-auto me-2">
+                                                                </div>
+                                                            </div>
+                                                    
+                                                            <div class="col-3">
+                                                                <div class="card shadow px-4 py-3">
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <h1 class="text-yellow fw-bold display-6" id="base_salary">$</h1>
+                                                                        <div class="bg-icon bg-warning-light text-primary d-flex justify-content-center pt-1">
+                                                                            <i class="bi bi-person icon text-warning ps-2 fs-3 fw-bold"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="mb-1">Base Salary</p>
+                                                                    <small class="text-muted d-flex ">
+                                                                        <i  class="bi bi-cash text-success pe-1"></i> 
+                                                                        ប្រាក់ខែគោលប្រចាំខែរបស់អ្នក
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                    
+                                                            <div class="col-3">
+                                                                <div class="card shadow px-4 py-3">
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <h1 class="text-primary fw-bold display-6" id="ot">$</h1>
+                                                                        <div class="bg-icon bg-primary-light text-primary d-flex justify-content-center pt-1">
+                                                                            <i class="bi bi-clock-history fs-3 fw-bold"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="mb-1">Overtime</p>
+                                                                    <small class="text-muted">
+                                                                        <i class="bi bi-clock text-success"></i> 
+                                                                        
+                                                                         ចំនូនប្រាក់ថែមម៉ោងរបស់អ្នក
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                    
+                                                            <div class="col-3">
+                                                                <div class="card shadow px-4 py-3">
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <h1 class="text-danger fw-bold display-6" id="tax">%</h1>
+                                                                        <div class="bg-icon bg-danger-light text-primary d-flex justify-content-center pt-1">
+                                                                            <i class="bi bi-percent text-danger fs-3 fw-bold"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="mb-1">Tax</p>
+                                                                    <small class="text-muted">
+                                                                        <i class="bi bi-percent text-success"></i>
+                                                                       
+                                                                        ភាគរយនៃការកាត់ចូលពន្ធ
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                    
+                                                            <div class="col-3">
+                                                                <div class="card shadow px-4 py-3">
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <h1 class="text-success fw-bold display-6" id="net_salary">$</h1>
+                                                                        <div class="bg-icon bg-success-light text-primary d-flex justify-content-center pt-1">
+                                                                            <i class="bi bi-credit-card text-success fs-3 fw-bold"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="mb-1">Net Salary</p>
+                                                                    <small class="text-muted"><i
+                                                                        class="bi bi-cash text-success"></i> 
+                                                                        ចំនួនប្រាក់បៀវត្សរ៍របស់អ្នក
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter">
+                            <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">កែតម្រូវព័ត៌មានបុគ្គលិក</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="">
+                                            <div class="row">
+                                                <div class="col-6 ">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="d-flex justify-content-center mb-2">
+                                                                <label for="profile">
+                                                                    <img src="images/pic3.jpg"
+                                                                        class="img-fluid rounded-circle me-3" alt="">
+                                                                </label>
+
+                                                            </div>
+                                                            <div
+                                                                class="mb-3 align-items-center d-flex justify-content-center">
+                                                                <div>
+                                                                    <label for="profile"
+                                                                        class="btn-change btn-primary text-white "
+                                                                        role="button">
+                                                                        <span class=" ps-4 ">
+                                                                            ផ្លាស់ប្តូររូប
+                                                                        </span>
+                                                                    </label>
+                                                                    <button type="button"
+                                                                        class="btn-change btn-danger text-white border-0 m-0 p-0">លុបរូប</button>
+                                                                    <input type="file"
+                                                                        class="form-control bg-transparent d-none"
+                                                                        id="profile">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 mb-3">
+                                                            <h5 class="modal-title">ព័ត៌មានផ្ទាល់ខ្លួន</h5>
+                                                        </div>
+                                                        <div class="col-6 ">
+                                                            <div class="form-group ">
+                                                                <label for="firstName">គោត្តនាម</label>
+                                                                <input type="text" class="form-control" id="firstName"
+                                                                    placeholder="ហិន">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 ">
+                                                            <div class="form-group ">
+                                                                <label for="lastName">Last Name</label>
+                                                                <input type="text" class="form-control" id="lastName"
+                                                                    placeholder="Last Name">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6  mt-3">
+                                                            <div class="form-group ">
+                                                                <label for="gender">Gender</label>
+                                                                <select class="form-control" id="gender">
+                                                                    <option value="male">Male</option>
+                                                                    <option value="female">Female</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6 mt-3">
+                                                            <div class="form-group">
+                                                                <label for="birthDate">Birth Date</label>
+                                                                <input type="date" class="form-control" id="birthDate">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12  mt-3">
+                                                            <div class="form-group">
+                                                                <label for="numPhone">Phone</label>
+                                                                <input type="text" class="form-control" id="numPhone"
+                                                                    placeholder="01234567">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12  mt-3">
+                                                            <div class="form-group">
+                                                                <label for="address">Address</label>
+                                                                <textarea class="form-control" id="address"
+                                                                    rows="3">ផ្លូវ៥១២ ភូមិ១ បឹងកក់ទី១ ទួលគោក ភ្នំពេញ</textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="row ">
+                                                        <div class="col-12 mb-3">
+                                                            <h5 class="modal-title">ព័ត៌មានការងារ</h5>
+                                                        </div>
+                                                        <div class="col-12 ">
+                                                            <div class="form-group ">
+                                                                <label for="firstName">នាយកដ្ឋាន</label>
+                                                                <select class="form-control" id="gender">
+                                                                    <option value="អប់រំ">អប់រំ</option>
+                                                                    <option value="អប់រំ">អប់រំ</option>
+
+                                                                </select>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 mt-3">
+                                                            <div class="form-group ">
+                                                                <label for="position">មុខតំណែង</label>
+                                                                <select class="form-control" id="gender">
+                                                                    <option value="គ្រូបង្រៀន">គ្រូបង្រៀន</option>
+                                                                    <option value="អប់រំ">អប់រំ</option>
+
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12  mt-3">
+                                                            <div class="form-group ">
+                                                                <label for="payroll">ប្រាក់បៀវត្សន៍</label>
+                                                                <input type="text" class="form-control" id="payroll"
+                                                                    placeholder="300$">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 mt-3">
+                                                            <div class="form-group">
+                                                                <label for="birthDate">ថ្ងៃចូលធ្វើការ</label>
+                                                                <input type="date" class="form-control" id="birthDate">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 mt-3">
+                                                            <div class="form-group">
+                                                                <label for="numPhone">CV</label>
+                                                                <div class="input-group form-control">
+                                                                    <div class="form-file border-0">
+                                                                        <input type="file"
+                                                                            class="form-file-input form-control">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger light button-style py-0"
+                                            data-bs-dismiss="modal">បោះបង់</button>
+                                        <button type="button"
+                                            class="btn btn-primary button-style py-0">រក្សាទុក</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="exampleModalCenter1">
+                            <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">មើលលម្អិតកាតផ្ទាល់ខ្លួន</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                        </button>
+                                    </div>
+                                    <div class="modal-body align-items-center d-flex justify-content-center">
+                                        <img src="images/card-emp.png" class="w-75" alt="">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary text-white fs-4"
+                                            data-bs-dismiss="modal"> <i
+                                                class="bi bi-credit-card-2-front-fill me-3 fs-3"></i>Print
+                                            Card</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- modal create -->
+<div class="modal  fade" id="cropper1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header border-0 pb-0 mb-0 mt-3 ">
+                <h5 class="modal-title fs-3 ">កែតម្រូវព័ត៌មានបុគ្គលិក</h5>
+                <button type="button" class="btn-close fs-4 " data-bs-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body mt-0 pt-0 ">
+                <div class="modal-content w-100 rounded-0">
+
+                    <img src="" class="hidden   mb-4  " id="croppedImage" alt="" />
+                </div>
+
+            <div class="modal-footer d-flex justify-content-end px-1">
+                <button type="button" class="btn btn-outline-danger py-0 me-2 light button-style"
+                    data-bs-dismiss="modal">បោះបង់</button>
+                <button type="button" class="btn btn-outline-success py-0 button-style" id="cropButton"   data-bs-dismiss="modal">រក្សាទុក</button>
+            </div>
+        </div>
+    </div>
+</div>
+        
+                        <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+                        <!--**********************************
+            Footer start
+        ***********************************-->
+                        <%- include('../../partials/footer.ejs') %>
+                            <!--**********************************
+            Footer end
+        ***********************************-->
+
+                            <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+                            <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+        </div>
+        <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+        <!--removeIf(production)-->
+
+        <!--**********************************
+        Scripts
+    ***********************************-->
+        <!-- Required vendors -->
+         
+  
+        <%- include('../../partials/logoutScr.ejs') %>
+        <script src="/vendor/cropper/cropper.min.js"></script>
+        <script src="/js/auth/profile.js"></script>
+        <script src="/js/statistic/profile-attendance.js"></script>
+        <script src="/js/statistic/profile-performance.js"></script>
+        <script src="/js/statistic/profile-payroll.js"></script>
+        <script src="/js/statistic/profile-reqAtt.js"></script>
+        <script src="/js/statistic/performance-leave.js"></script>
+
+</body>
+
+</html>

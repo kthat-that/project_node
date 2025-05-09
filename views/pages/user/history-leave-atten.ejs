@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../../partials/head.ejs') %>
+    <link rel="stylesheet" href="/vendor/sweetalert2/dist/sweetalert2.min.css">
+
+    <body class="page-request-leave">
+
+        <!--*******************
+        Preloader start
+    ********************-->
+        <%- include('../../partials/preloader.ejs') %>
+            <!--*******************
+        Preloader end
+    ********************-->
+
+            <!--**********************************
+        Main wrapper start
+    ***********************************-->
+            <div id="main-wrapper">
+
+                <!--**********************************
+            Nav header start
+        ***********************************-->
+                <%- include('../../partials/nav-header.ejs') %>
+                    <!--**********************************
+            Nav header end
+        ***********************************-->
+
+                    <!--**********************************
+            Chat box start
+        ***********************************-->
+                        <!--**********************************
+            Chat box End
+        ***********************************-->
+
+                        <!--**********************************
+            Header start
+        ***********************************-->
+                        <div class="header">
+                            <div class="header-content">
+                                <a href="/request-atten" class="brand-logo mt-2">
+                                    <i class="bi bi-arrow-left display-5"></i>
+                                    <!-- <img src="/images/responsive-icon/back-icon.png" id="logo" alt="Logo" style="width: -60px !important;"> -->
+                                </a>
+                                <nav class="navbar navbar-expand">
+                                    <div class="collapse navbar-collapse justify-content-between">
+                                        <div class="header-left">
+                                            <div class="dashboard_bar">
+                                                User
+                                            </div>
+                                        </div>
+                                        <%- include('../../partials/header-user.ejs') %>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+
+                        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+                        <!--**********************************
+            Sidebar start
+        ***********************************-->
+                        <%- include('../../partials/sidebar.ejs') %>
+                            <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+                            <!--**********************************
+            Content body start
+        ***********************************-->
+                            <div class="content-body card-history">
+                                <div class="container-fluid">
+
+                                    <!-- row -->
+                                    <div class="row">
+                                        <h3 class=" mb-3 pt-3 ">ប្រវត្តិស្នើរច្បាប់</h3>
+                                        <div class="table-container mt-4 ">
+                                            <table class="table text-center">
+                                                <thead class="bg-primary-light">
+                                                    <tr>
+                                                        <th class="th text-primary fs-4 fw-bold">កាលបរិច្ឆេទ</th>
+                                                        <th class="text-primary fs-4 fw-bold">ចាប់ពីថ្ងៃ</th>
+                                                        <th class="text-primary fs-4 fw-bold">ដល់ថ្ងៃ</th>
+                                                        <th class="text-primary fs-4 fw-bold">រយៈពេល</th>
+                                                        <th class="text-primary fs-4 fw-bold">មូលហេតុ</th>
+                                                        <th class="th1 text-primary fs-4 fw-bold">ស្ថានភាព</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="leave-history-record">
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <nav aria-label="Page navigation" class="w-100 pb-3">
+                                            <div id="pagination"></div>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+                            <!--**********************************
+            Footer start
+        ***********************************-->
+                            <%- include('../../partials/footer.ejs') %>
+                                <!--**********************************
+            Footer end
+        ***********************************-->
+
+                                <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+                                <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+            </div>
+            <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+            <!--**********************************
+        Scripts
+    ***********************************-->
+            <!-- Required vendors -->
+            <%- include('../../partials/logoutScr.ejs') %>
+                <script src="js/sidebar-user.js"></script>
+                <script src="/js/leave/user-leave-history.js"></script>
+
+    </body>
+
+</html>

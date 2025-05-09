@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../../partials/head.ejs') %>
+    <link rel="stylesheet" href="/vendor/sweetalert2/dist/sweetalert2.min.css">
+
+    <body class="page-ot">
+
+        <!--*******************
+        Preloader start
+    ********************-->
+        <%- include('../../partials/preloader.ejs') %>
+            <!--*******************
+        Preloader end
+    ********************-->
+
+            <!--**********************************
+        Main wrapper start
+    ***********************************-->
+            <div id="main-wrapper">
+
+                <!--**********************************
+            Nav header start
+        ***********************************-->
+                <%- include('../../partials/nav-header.ejs') %>
+                    <!--**********************************
+            Nav header end
+        ***********************************-->
+
+                    <!--**********************************
+            Chat box start
+        ***********************************-->
+                        <!--**********************************
+            Chat box End
+        ***********************************-->
+
+                        <!--**********************************
+            Header start
+        ***********************************-->
+                        <div class="header">
+                            <div class="header-content">
+                                <a href="/home-screen" class="brand-logo mt-2">
+                                    <i class="bi bi-arrow-left display-5"></i>
+                                    <!-- <img src="/images/responsive-icon/back-icon.png" id="logo" alt="Logo" style="width: -60px !important;"> -->
+                                </a> 
+                                <nav class="navbar navbar-expand">
+                                    <div class="collapse navbar-collapse justify-content-between">
+                                        <div class="header-left">
+                                            <div class="dashboard_bar">
+                                                User
+                                            </div>
+                                        </div>
+                                        <%- include('../../partials/header-user.ejs') %>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+
+                        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+                        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <%- include('../../partials/sidebar.ejs') %>
+                            <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+                            <!--**********************************
+            Content body start
+        ***********************************-->
+                            <div class="content-body card-ot">
+                                <div class="container-fluid">
+
+                                    <!-- row -->
+
+                                    <div class="row">
+                                        <h3 class="mb-3">ការស្នើរសំុថែមម៉ោង</h3>
+                                        <div class="d-flex gap-3 mb-3">
+                                            <div class="attendance-box d-flex justify-content-evenly margin-left ">
+                                                <div class="box-arrow bg-primary-light ">
+                                                    <i class="bi bi-qr-code-scan text-primary fs-2"></i>
+                                                </div>
+                                                <div class="text pt-4">
+                                                    <h2 class="mb-0">ស្កេនចូលធ្វើការ</h2>
+                                                </div>
+                                            </div>
+                                            <div class="attendance-box d-flex justify-content-evenly margin-right">
+                                                <div class="box-arrow bg-primary-light ">
+                                                    <i class="bi bi-pencil-square  text-primary fs-2"></i>
+                                                </div>
+                                                <div class="text pt-4">
+                                                    <button class=" bg-transparent border-0" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModalCenter1">
+                                                        <h2 class="mb-0">ស្នើសុំថែមម៉ោង</h2>
+                                                    </button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <h3 class="mt-4 mb-3 ">ប្រវត្តិថែមម៉ោង</h3>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="mb-2 mt-3 margin-left1">
+                                                <a href="/ot"><button class="btn btn-primary bg-primary-light py-0 border-0 text-primary" style="width: 120px; height: 32px; border-radius: 10px;">ថែមម៉ោង</button></a>
+                                                <a href="/request-ot-user"><button class="btn btn-primary py-0 border-0 " style="width: 120px; height: 32px; border-radius: 10px;">ប្រវត្តិស្នើរសុំ</button></a>
+                                            </div>
+                                            <h4 class="align-items-center mt-4 text-primary margin-right">មើលទាំងអស់</h4>
+                                        </div>
+                                        <div class="d-flex flex-column " id="ot-history-request">
+                                        </div>
+                                        <div id="pagination"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- modal -->
+                            <div class="modal fade" id="exampleModalCenter1">
+                                <div class="modal-dialog modal-md modal-dialog-centered" role="document"
+                                    style="width: 500px !important;">
+                                    <div class="modal-content">
+                                        <div class="modal-header border-0">
+                                        </div>
+                                        <h3 class="text-center">Request OT</h3>
+                                        <div class="modal-body pt-0 mt-0">
+                                            <input type="date" name="" id="ot-date" class="form-control mt-2">
+                                            <textarea name="" id="ot-reason" rows=""
+                                                class="text-area form-control mt-3">Reason</textarea>
+                                        </div>
+                                        <div class="px-4 mb-5">
+                                            <button type="button" id="reset"
+                                                class="btn btn-primary w-100 py-0 button-style" data-bs-dismiss="modal"
+                                                onclick="requestOT()">ស្នើរសុំថែមម៉ោង</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+                            <!--**********************************
+            Footer start
+        ***********************************-->
+                            <%- include('../../partials/footer.ejs') %>
+                                <!--**********************************
+            Footer end
+        ***********************************-->
+
+                                <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+                                <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+
+            </div>
+            <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+            <!--**********************************
+        Scripts
+    ***********************************-->
+            <!-- Required vendors -->
+
+            <%- include('../../partials/logoutScr.ejs') %>
+            <script src="js/sidebar-user.js"></script>
+            <script src="/vendor/momentjs/"></script>
+            <script src="/js/overtime/user-ot-request.js"></script>
+        
+    </body>
+
+</html>

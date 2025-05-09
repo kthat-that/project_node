@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs') %>
+
+    <body>
+
+        <!--*******************
+        Preloader start
+    ********************-->
+        <%- include('../partials/preloader.ejs') %>
+            <!--*******************
+        Preloader end
+    ********************-->
+
+            <!--**********************************
+        Main wrapper start
+    ***********************************-->
+            <div id="main-wrapper">
+
+                <!--**********************************
+            Nav header start
+        ***********************************-->
+                <%- include('../partials/nav-header.ejs') %>
+                    <!--**********************************
+            Nav header end
+        ***********************************-->
+
+                    <!--**********************************
+            Chat box start
+        ***********************************-->
+                        <!--**********************************
+            Chat box End
+        ***********************************-->
+
+                        <!--**********************************
+            Header start
+        ***********************************-->
+        <%- include('../partials/header.ejs') %>
+
+                        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+                        <!--**********************************
+            Sidebar start
+        ***********************************-->
+                        <%- include('../partials/sidebar.ejs') %>
+                            <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+                            <!--**********************************
+            Content body start
+        ***********************************-->
+                            <div class="content-body">
+                                <div class="container-fluid">
+                                    <!-- row -->
+                                    <div class="row">
+                                        <div class="card shadow p-5">
+                                            <form id="adminCreate">
+                                                <div class="row">
+                                                    <div
+                                                    class="department d-flex align-items-center justify-content-between mb-3">
+                                                    <h3 class="title pb-3 fw-bold">បង្កើតគណនីAdmin</h3>
+
+                                                    <div
+                                                        class="left-item d-flex align-items-center pb-3 justify-content-evenly ">
+                                                        <a href="/create-employee">
+                                                            <div class="created w-100 px-3">
+                                                                <span>+</span>&nbsp; បង្កើតគណនីបុគ្គលិក
+                                                            </div>
+                                                        </a>
+                                                    </div>
+
+                                                </div>
+                                                        <div class="col-6 ">
+                                                            <div class="row">
+                                                                <div class="col-12">
+                                                                    <h4>រូបភាព</h4>
+                                                                    <div class="d-flex justify-content-center mb-4 ">
+                                                                        <img src="/upload/default.png" id="cropped"
+                                                                            class="img-fluid rounded-circle position-relative"
+                                                                            style="width: 130px;border: 5px solid #b7d8ff;"  alt="">
+                                                                        <div
+                                                                            class="align-items-center d-flex justify-content-center position-absolute ">
+                                                                            <label for="profile"
+                                                                                class="fw-medium text-white bg-primary  change-img "
+                                                                                role="button">
+                                                                                <i class="bi bi-pencil-square"></i>
+                                                                            </label>
+                                                                            <input type="file"
+                                                                        
+                                                                            class="form-control bg-transparent d-none"
+                                                                            id="profile"> 
+                                                                            <!-- <button  class="form-control bg-transparent d-none" data-bs-toggle="modal" data-bs-target="#cropper1"
+                                                                            id="profile"></button> -->
+                                                                           <!-- modal create -->
+                                                                            <div class="modal  fade" id="cropper1">
+                                                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header border-0 pb-0 mb-0 mt-3 ">
+                                                                                            <h5 class="modal-title fs-3 ">Crop Photo</h5>
+                                                                                            <button type="button" class="btn-close fs-4 " data-bs-dismiss="modal">
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="modal-body mt-0 pt-0 ">
+                                                                                            <div class="modal-content w-100 rounded-0">
+
+                                                                                                <img src="" class="hidden   mb-4  " id="croppedImage" alt="" />
+                                                                                            </div>
+
+                                                                                        <div class="modal-footer d-flex justify-content-end px-1">
+                                                                                            <button type="button" class="btn btn-outline-danger py-0 me-2 light button-style"
+                                                                                                data-bs-dismiss="modal">បោះបង់</button>
+                                                                                            <button type="button" class="btn btn-outline-success py-0 button-style" id="cropButton"   data-bs-dismiss="modal">រក្សាទុក</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+        
+                                                                                
+                                                                              
+                                                                         <!-- <input type="file"
+                                                                                onchange="loadFile(event)"
+                                                                                class="form-control bg-transparent d-none"
+                                                                                id="profile">  -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-6 ">
+                                                                    <div class="form-group ">
+                                                                        <label for="firstName">នាមត្រកូល</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="firstName" placeholder="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-6 ">
+                                                                    <div class="form-group ">
+                                                                        <label for="lastName">នាមខ្លួន</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="lastName" placeholder="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-6  mt-3">
+                                                                    <div class="form-group ">
+                                                                        <label for="gender">ភេទ</label>
+                                                                        <select class="form-control" id="gender">
+                                                                            <option value="male">Male</option>
+                                                                            <option value="female">Female</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-6 mt-3">
+                                                                    <div class="form-group">
+                                                                        <label for="birthDate">ថ្ងៃខែឆ្នាំកំណើត</label>
+                                                                        <input type="date" class="form-control"
+                                                                            id="birthDate">
+                                                                    </div>
+                                                                </div>
+                                                          
+                                                                <div class="col-12  mt-3">
+                                                                    <div class="form-group">
+                                                                        <label for="email">អ៊ីមែល</label>
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="" id="email">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12  mt-3">
+                                                                    <div class="form-group">
+                                                                        <label for="numPhone">លេខទូរស័ព្ទ</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="phone" placeholder="">
+                                                                    </div>
+                                                                </div>
+                                                         
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="row ">
+                                                                <!-- <div class="col-12 ">
+                                                <div class="form-group ">
+                                                    <label for="pass">លេខសម្ចាត់</label>
+                                                    <input type="password" name="" id="pass" class="form-control" placeholder="*******">
+                                                </div>
+                                            </div> -->
+                                                                <!-- <div class="col-12 mt-3">
+                                                <div class="form-group ">
+                                                    <label for="position">តួនាទី</label>
+                                                    <select class="form-control" id="role">
+                                                        <option value="1" selected>User</option>
+                                                    </select>
+                                                </div>
+                                            </div>           -->
+                                                                <div class="col-12 mt-3">
+                                                                    <div class="form-group ">
+                                                                        <label for="firstName">នាយកដ្ឋាន</label>
+                                                                        <select class="form-control" id="department">
+                                                                            <!-- -- fetch API  -->
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 mt-3">
+                                                                    <div class="form-group ">
+                                                                        <label for="position">មុខតំណែង</label>
+                                                                        <select class="form-control" id="position">
+                                                                            <!-- -- fetch API  -->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12  mt-3">
+                                                                    <div class="form-group">
+                                                                        <label for="address">អាស័យដ្ឋាន</label>
+                                                                        <textarea class="form-control" id="address"
+                                                                            rows="3"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12  mt-3">
+                                                                    <div class="form-group ">
+                                                                        <label for="payroll">ប្រាក់បៀវត្សន៍</label>
+                                                                        <select class="form-control" id="payroll">
+                                                                            <option value="300">300</option>
+                                                                            <option value="400">400</option>
+                                                                            <option value="500">500</option>
+                                                                            <option value="600">600</option>
+                                                                            <option value="700">700</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 mt-3">
+                                                                    <div class="form-group">
+                                                                        <label for="birthDate">ថ្ងៃចូលធ្វើការ</label>
+                                                                        <input type="date" class="form-control"
+                                                                            id="hireDate">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 mt-3">
+                                                                    <div class="form-group">
+                                                                        <label for="numPhone">ប្រវិត្តរូបសង្ខេប</label>
+                                                                        <div class="input-group form-control">
+                                                                            <div class="form-file border-0">
+                                                                                <input type="file" id="cv"
+                                                                                    class="form-file-input form-control">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="col-12 mt-5 text-end ">
+                                                                <button type="submit"
+                                                                class="btn btn-primary ">Submit</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                           
+
+                                        </div>
+                                        
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!--**********************************
+
+
+            </div>
+            <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+            <!--**********************************
+        Scripts
+    ***********************************-->
+            <!-- Required vendors -->
+            <%- include('../partials/logoutScr.ejs') %>
+            <script src="/vendor/cropper/cropper.min.js"></script>
+            <script src="/js/auth/cropper.js"></script>
+            <script src="/js/auth/create.js"></script>
+</html>

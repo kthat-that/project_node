@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <%- include('../../partials/head.ejs') %>
+        <style>
+            body {
+                height: 80vh;
+            }
+
+            .authentication .img {
+                width: 1320px;
+                height: 728px;
+                z-index: -1;
+            }
+
+            input {
+               
+                border:1px solid #f8faff ;
+            }
+
+            .input-container {
+                position: relative;
+            }
+
+            .icon {
+                width: 32px;
+                height: 22px;
+                border-right: 2px solid rgb(255, 255, 255);
+                display: flex;
+                color: #00000086;
+                margin-left: 10px;
+                /* Space from the left */
+                margin-right: 10px;
+                /* Space to the right of the icon */
+                font-weight: 500;
+                padding: 0 8px 0 5px;
+                position: absolute;
+                /* Position the icon inside the container */
+            }
+
+            .form-control {
+                background-color: #e9f0fd !important;
+                padding-left: 50px !important;
+                /* Increased padding to make room for the icon */
+            }
+
+
+            .navbar {
+                position: absolute;
+                display: flex;
+                align-items: center;
+                padding: 20px 30px;
+                background-color: transparent;
+                /* Navbar background color */
+                color: white;
+            }
+
+        </style>
+</head>
+<body class="vh-80"
+    style="background-color: #ffffff; background-image: url(images/login-img.jpg); background-size: cover; background-position: bottom right;">
+
+
+    <div class="authentication  h-100" style="z-index: 89;">
+        <div class="container h-100 position-relative">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-6">
+                    <div class="">
+                        <div class="row ">
+                            <div class="col-xl-12">
+                                <div class="auth-form loginForm">
+                                    <div class="">
+                                        <img src="images/logo/logo(1).png"  alt="" width="150">
+                                    </div>
+                                    <h2 class="text-center mb-4 fs-2 my-3 fw-bold" style="color: #022b72;">ចូលគណនី</h2>
+                                    <form id="loginForm" method="post">
+                                        <div class="input-container">
+                                            <label class="mb-1 fs-3 fw-light"><strong>អ៊ីម៉ែល</strong></label>
+                                            <div class="d-flex align-items-center ">
+                                                <img src="images/svg/email.svg"
+                                                    class="bi bi-envelope position-absolute icon">
+                                                <input type="text" id="email" class="form-control"
+                                                    placeholder="អ៊ីម៉ែល">
+                                            </div>
+                                            <p style="color: #DC3545; margin: 0; text-align: end; visibility: hidden;"
+                                                id="emailCheck">សូមបញ្ជូលតាមតម្រង់ example@gmail.com</p>
+                                        </div>
+                                        <div class="input-container">
+                                            <label class="mb-1 fs-3 fw-light"><strong>លេខសម្ងាត់</strong></label>
+                                            <div class="d-flex align-items-center ">
+                                                <img src="images/svg/password.svg"
+                                                    class="bi bi-lock position-absolute icon " alt="">
+                                                <input type="password" id="password" class="form-control"
+                                                    placeholder="លេខសម្ងាត់">
+                                            </div>
+                                            <p style="color: #DC3545; margin: 0; text-align: end; visibility: hidden;"
+                                                id="passCheck">សូមបញ្ជូលលេខសម្ងាត់ 8 ខ្ទង់ឡើង</p>
+                                        </div>
+                                        <div class="row d-flex justify-content-between mt-2">
+                                            <div class="mb-3">
+                                                <div class="form-check custom-checkbox ms-1">
+                                                    <input type="checkbox" class="form-check-input"
+                                                        id="basic_checkbox_1">
+                                                    <label class="form-check-label fs-4"
+                                                        for="basic_checkbox_1">ចងចំាខ្ញុំ</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="text-center">
+                                            <button type="submit" style="cursor: pointer;" class="btn btn-primary btn-block fw-light">ចូលគណនី</button>
+                                        </div> -->
+                                        <div class="text-center">
+                                            <button type="submit" id="login" style="cursor: pointer;"
+                                                class="btn btn-primary btn-block fs-3 py-0 fw-light">ចូលគណនី</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <img src="images/login.png" class="img object-fit-cover w-100 h-100" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/config.js"></script>
+    <script src="/vendor/sweetalert2/dist/sweetalert2@11.js"></script>
+    <script src="/js/auth/toast.js"></script>
+    <script src="/js/auth/auth.js"></script>
+</body>
+
+</html>

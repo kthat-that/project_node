@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../../partials/head.ejs') %>
+
+    <body class="page-attandace">
+        <%- include('../../partials/preloader.ejs') %>
+    <!--**********************************
+    Main wrapper start
+    ***********************************-->
+        <div id="main-wrapper">
+        <!--**********************************
+        Nav header start
+        ***********************************-->
+            <%- include('../../partials/nav-header.ejs') %>
+        <!--**********************************
+        Nav header end
+        ***********************************-->
+
+        <!--**********************************
+        Chat box start
+        ***********************************-->
+        <!--**********************************
+        Chat box End
+        ***********************************-->
+        <!--**********************************
+        Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <a href="/home-screen" class="brand-logo mt-2">
+                    <i class="bi bi-arrow-left display-5"></i>
+                    <!-- <img src="/images/responsive-icon/back-icon.png" id="logo" alt="Logo" style="width: -60px !important;"> -->
+                </a> 
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">
+                                User
+                            </div>
+                        </div>
+                        <%- include('../../partials/header-user.ejs') %>             
+                    </div>
+                </nav>
+            </div>                  
+        </div>
+        <!--**********************************
+        Header end ti-comment-alt
+        ***********************************-->
+        <!--**********************************
+        Sidebar start
+        ***********************************-->
+        <%- include('../../partials/sidebar.ejs') %>
+        <!--**********************************
+        Sidebar end
+        ***********************************-->
+        <!--**********************************
+        Content body start
+        ***********************************-->
+                            <div class="content-body atten-user">
+                                <div class="container-fluid">
+                                    <!-- row -->
+                                    <div class="row">
+                                        <div class="bg-card-atten">
+                                           
+                                            
+                                            <div class="d-flex justify-content-between">
+                                                <h3 class="mt-3 mb-1  fw-bold">ប្រវត្តិអវត្តមាន </h3>
+                                                
+                                            </div>
+                                            <div class="table-container mt-3 " >
+                                                <table class="table " >
+                                                    <thead class="bg-primary-light">
+                                                        <tr>
+                                                            <th class="th text-primary fs-4 ps-4 fw-medium " style="border-top-left-radius: 10px;">ល.រ</th>
+                                                            <th class="th text-primary fs-4 fw-medium " >កាលបរិច្ឆេទ</th>
+                                                            <th class="text-primary fs-4 fw-medium">ម៉៉ោងចូលធ្វើការ</th>
+                                                            <th class="text-primary fs-4 fw-medium">ម៉៉ោងចេញពីធ្វើការ</th>
+                                                            
+                                                            <th class="th1 text-primary fs-4 fw-medium"  style="border-top-right-radius: 10px;">ស្ថានភាព</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="ownAttendanceUser">
+                                                        
+                                                        
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="amount mt-2 ps-3">
+                                                <p class="fs-4 fw-medium totalValue"></p>
+                                              </div>
+            
+                                           <!-- Pagination -->
+                                            <nav aria-label="Page navigation " class="w-100 pb-3 mx-2">
+                                                <div id="pagination"></div>
+                                            </nav>
+                                     
+                                            <div class="card-ot-reson mt-2 d-lg-none d-md-block " id="">
+                                                <div class="card card-body mx-2 py-4 mb-2 shadow">
+                                                    <div class=" d-flex justify-content-between">
+                                                        <div class="d-flex">
+                                                            <div
+                                                                class="box-arrow-1 me-3 bg-primary-light d-flex justify-content-center align-items-center py-0">
+                                                                <i class="bi bi-box-arrow-right text-primary fs-5"></i>
+                                                            </div>
+                                                            <div>
+                                                                <h5>Checkin/Checkout</h5>
+                                                                <p class="mb-0">Feb 16,2025-10:12:19 AM</p>
+                                                                <p class="mb-0">Feb 16,2025-04:11:12 PM</p>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+
+                                                        </div>
+                                                        <div class="time">
+                                                            <h5 class="fw-bold text-success">Hour</h5>
+                                                            <p class="mb-0">$100</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                               
+                                            </div>
+
+                                            
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+ 
+            <!--**********************************
+            Content body end
+            ***********************************-->
+            <!--**********************************
+            Footer start
+            ***********************************-->
+            <%- include('../../partials/footer.ejs') %>
+            <!--**********************************
+            Footer end
+            ***********************************-->
+            <!--**********************************
+            Support ticket button start
+            ***********************************-->
+            <!--**********************************
+           Support ticket button end
+            ***********************************-->
+        </div>
+            <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+            <!--**********************************
+        Scripts
+    ***********************************-->
+            <!-- Required vendors -->
+        <%- include('../../partials/logoutScr.ejs') %>
+      
+        <script src="js/sidebar-user.js"></script>
+        <script src="/vendor/momentjs/moment.js"></script>
+       <script src="/js/user/attendance.js"></script>
+
+       
+        <script>
+           const scanButton = document.getElementById('btn-scan');
+            if (scanButton) {
+                scanButton.addEventListener('click', () => {
+                    window.location.href = `${endpoint}/user/scanner`;
+                });
+            } else {
+                console.error("Error: #btn-scan button not found!");
+            }
+
+        </script>
+   
+    
+
+    </body>
+
+</html>

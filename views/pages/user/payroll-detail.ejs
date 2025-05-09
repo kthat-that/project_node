@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../../partials/head.ejs') %>
+<body class="page-payroll-user">
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <%- include('../../partials/preloader.ejs') %>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+		<%- include('../../partials/nav-header.ejs') %>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+		
+		<!--**********************************
+            Chat box start
+        ***********************************-->
+		<!--**********************************
+            Chat box End
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <a href="/payroll-user" class="brand-logo mt-2">
+                    <i class="bi bi-arrow-left display-5"></i>
+                    <!-- <img src="/images/responsive-icon/back-icon.png" id="logo" alt="Logo" style="width: -60px !important;"> -->
+                </a> 
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+							<div class="dashboard_bar">
+                                User
+                            </div>
+                        </div>
+                        <%- include('../../partials/header-user.ejs') %>
+                    </div>
+				</nav>
+			</div>
+		</div>
+                    
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <%- include('../../partials/sidebar.ejs') %>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body payroll-user">
+            <div class="container-fluid">
+                <!-- row -->
+               <div class="payroll-user">
+                <h3>ប្រវត្តិប្រាក់បៀវត្សន៍</h3>
+                    <div class="card shadow py-4 mb-2">
+                        <div class="invoice-box">
+                            <div class="d-flex justify-content-between invoice-header">
+                                <span>កាលបរិច្ឆេទ:</span>
+                                <span>២២ កុម្ភៈ ២០២៥</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between">
+                                <span>ប្រាក់គោល:</span>
+                                <span class="fw-bold">$300</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>ប្រាក់បង់:</span>
+                                <span class="fw-bold">$60</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>ប្រាក់ចំណាយ:</span>
+                                <span class="fw-bold">$10</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between total">
+                                <span>ប្រាក់ដែលនៅសល់:</span>
+                                <span class="fw-bold">$350</span>
+                            </div>
+                        </div>
+                        </div>
+                        
+
+                </div>
+               
+            </div>
+        </div>
+
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <%- include('../../partials/footer.ejs') %>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <%- include('../../partials/logoutScr.ejs') %>
+    <script src="/vendor/momentjs/moment.js"></script>
+    <script src="/vendor/chart/chart.js"></script>
+    <script src="js/sidebar-user.js"></script>
+    
+</body>
+</html>

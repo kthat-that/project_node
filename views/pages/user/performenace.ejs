@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../../partials/head.ejs') %>
+<body class="page-performence">
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <%- include('../../partials/preloader.ejs') %>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+		<%- include('../../partials/nav-header.ejs') %>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+		
+		<!--**********************************
+            Chat box start
+        ***********************************-->
+        
+		<!--**********************************
+            Chat box End
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <a href="/home-screen" class="brand-logo mt-2">
+                    <i class="bi bi-arrow-left display-5"></i>
+                    <!-- <img src="/images/responsive-icon/back-icon.png" id="logo" alt="Logo" style="width: -60px !important;"> -->
+                </a> 
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+							<div class="dashboard_bar">
+                                User
+                            </div>
+                        </div>
+                        <%- include('../../partials/header-user.ejs') %>
+                    </div>
+				</nav>
+			</div>
+		</div>
+                    
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <%- include('../../partials/sidebar.ejs') %>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body user">
+            <div class="container-fluid ">
+                <!-- row -->
+                <div class="full-homepage1" >  
+                    <div class="row ">
+                        <div class="col-lg-12  mt-sm-4">
+                            <div class="card shadow p-4 perfoment">
+                                <h4 class="mb-0 ">ផលិភាពការងាររបស់អ្នក!</h4>
+                                <div>
+                                </div>
+                                <div class="add-card shadow">
+                                    <div class="row">
+                                        <p>From 27, កញ្ញា 2025</p>
+                                        <div class="col-md-6">
+                                            <div class="chart-container">
+                                                <canvas id="donutChart1"></canvas>
+                                            </div>     
+                                        </div>
+                                        <div class="col-md-6 mt-4">
+                                            <div class="row">
+                                                <div class="col-6 legend ">
+                                                    <span class="full-Day"></span>
+                                                    <div class="flex-column">
+                                                            <p
+                                                                class="m-0 text-start text-black-50">
+                                                                Full-Day</p>
+                                                            <strong
+                                                                class="display-6 fw-bold py-0">55.6%</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 legend">
+                                                    <span class="Absent"></span>
+                                                    <div class="flex-column">
+                                                            <p class="m-0 text-black-50">
+                                                                Absent</p>
+                                                            <strong
+                                                                class="display-6 fw-bold py-0">5.6%</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 legend mt-5">
+                                                    <span class="half-day"></span>
+                                                    <div class="flex-column">
+                                                            <p
+                                                                class="m-0 text-black-50">
+                                                                Half-Day</p>
+                                                            <strong
+                                                                class="display-6 fw-bold py-0">27.8%</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 legend mt-5 ">
+                                                    <span class="permission"></span>
+                                                    <div class="flex-column">
+                                                            <p
+                                                                class="m-0 p-0 text-black-50">
+                                                                Permission</p>
+                                                            <strong
+                                                                class="display-6 fw-bold py-0">11.1%</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <%- include('../../partials/footer.ejs') %>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+        
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required ven០dors -->
+
+    <%- include('../../partials/logoutScr.ejs')  %>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/config.js"></script>
+    <!-- <script src="/vendor/chart/chart.js"></script> -->
+    <script src="js/sidebar-user.js"></script>
+    
+    <script>
+        var ctx = document.getElementById("donutChart1").getContext("2d");
+
+        var data = {
+            labels: ["Full-Day", "Absent", "Half-Day", "Permission"],
+            datasets: [{
+                data: [55.6, 5.6, 27.8, 11.2], // Values
+                backgroundColor: ["#3A86FF", "#FF5757", "#3FFFFF", "#FFE26D"], // Colors
+                hoverOffset: 4
+            }]
+        };
+        var options = {
+            responsive: true,
+            maintainAspectRatio: false,
+            // cutout: "60%", // Makes it a donut chart
+            plugins: {
+                legend: {
+                    display: false // Hide default legend (we use custom one)
+                }
+            }
+        };
+        new Chart(ctx, {
+            type: "doughnut",
+            data: data,
+            options: options
+        });
+        
+        
+    </script>
+     
+    
+</body>
+</html>

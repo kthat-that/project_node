@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs') %>
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <%- include('../partials/preloader.ejs') %>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+		<%- include('../partials/nav-header.ejs') %>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+		
+		<!--**********************************
+            Chat box start
+        ***********************************-->
+		<!--**********************************
+            Chat box End
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <%- include('../partials/header.ejs') %>
+                    
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <%- include('../partials/sidebar.ejs')  %>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles ">
+                    <div class="d-flex justify-content-between">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item py-0 main-bread active"><a href="/leave-management">ស្នើរថែមម៉ោង</a></li>
+                            <li class="breadcrumb-item py-0" id="waiting">រង់ចាំពិនិត្យ</li>
+                            <li class="breadcrumb-item py-0" id="approved">អនុញ្ញាត្តិ</li>
+                            <li class="breadcrumb-item py-0" id="rejected">បដិសេធ</li>
+                        </ol>
+                        <input class="border-0 form-control" style="width: 130px;" id="sort_date" type="date">
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class=" nav-pills  d-flex justify-content-between" id="pills-tab" role="tablist">
+                            <div class="d-flex nav_tab">
+                                <a href="#" class="me-3" role="presentation">
+                                    <button id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" aria-controls="pills-home" aria-selected="true" type="button" class="btn  btn-primary text-white" onclick="getAllPendingOTRequest()">រង់ចាំពិនិត្យ</button>
+                                </a>
+                                <a href="#" class="me-3" role="presentation">
+                                    <button id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false" class="btn btn-outline-success" onclick="getAllApprovedOTRequest()">អនុញ្ញាត្តិ</button>
+                                </a>
+                                <a href="#" class="me-2" role="presentation">
+                                    <button id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false" class="btn btn-outline-danger" onclick="getAllRejectOTRequest()">បដិសេធ</button>
+                                </a>
+                            </div>
+                            <div class="d-flex justify-content-end h-leave">
+                                <a href="/reqOT-history">
+                                    <button type="button" class="btn btn-outline-primary px-1"><span class="me-1"><i class="fa-solid fa-eye"></i></span> មើលប្រវត្តិស្នើរ OT</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- row -->
+
+                <div class="tab-content"  id="pills-tabContent">
+                    <div class="request-ot tab-1 tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+                        <div class="row g-4 flex-wrap" id="pending_overtime"></div>
+                    </div>
+                    
+
+                    <div class="request-ot tab-2 tab-pane  fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                        <div class="row" id="approved_overtime"></div>
+                    </div>
+
+                    
+                    <div class=" request-ot tab-3 tab-pane  fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+                        <div class="row">
+                            <div class="col-xl-12 " >
+                                <div class="row" id="rejected_overtime"></div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+        <%- include('../partials/footer.ejs') %>
+     
+    </div>    
+   
+    <!-- Required vendors -->
+     <script src="/js/overscript/request-ot.js"></script>
+    <%- include('../partials/logoutScr.ejs') %>
+    <script src="/vendor/momentjs/moment.js"></script>
+    <script src="/js/overtime/overtime.js"></script>
+</body>
+</html>

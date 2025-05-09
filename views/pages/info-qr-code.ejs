@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <%- include('../partials/head.ejs') %>
+    <style>
+        body {
+            max-width: 100%;
+            height: 100vh;
+            background-color: #ffffff;
+        } 
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* object-fit: cover; */
+            z-index: -1;
+        }
+        input {
+            background-color: #e9f0fd !important;
+            border: 1px solid #f8faff;
+        }
+        .form-container {
+            margin-top: -20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 800px;
+            background: rgba(214, 213, 213, 0.8);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card {
+                border-radius: 12px;
+                padding: 30px;
+                background-color: #4186fd1d;
+            }
+        
+        @media (max-width: 575px) {
+            .form-container {
+                width: 95%;
+                padding: 20px;
+            }
+            .bg-image{
+                display: none;
+            }
+            .image1{  
+                position: absolute;
+                top: -30px;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                /* object-fit: cover; */
+                z-index: -1;
+                display: block !important;
+            }
+            .profile-img img{
+                width: 100px !important;
+            }
+            .img-logo img{
+                width: 100px !important;
+            }
+            .card {
+                background: transparent;
+            }  
+            .m-top{
+                margin-top: 10px;
+            }
+        }
+        .image1{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="/images/bg-read-info.png" alt="Background" class="bg-image">
+    <img src="/images/bg-read-info-reson.png" alt="Background" class="image1">
+    
+    <div class="form-container card">
+        <form id="" class="form-information-emp">
+            <div class="row">
+                <div class="col-12 ">
+                    <div class="logo d-flex justify-content-center img-logo">
+                        <img src="/images/logo/white-logo.png" alt="" style="width: 150px; padding-bottom: 10px; ">
+                    </div>
+                    <div class="d-flex justify-content-center profile-img">
+                        <img src="/upload/<%= qrcard[0].avatar  %>" id="cropped"
+                            class=" rounded-circle position-relative "
+                            style="width: 140px; border: 5px solid rgb(116, 156, 255); margin-bottom: 15px; " alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 ">
+                    <div class="row">
+                        <div class="col-6 px-1">
+                            <div class="form-group ">
+                                <label for="firstName">គោត្តនាម</label>
+                                <input type="text" class="form-control" id="firstName" value="<%= qrcard[0].first_name  %>" disabled
+                                    placeholder="ហិន">
+                            </div>
+                        </div>
+                        <div class="col-6 px-1">
+                            <div class="form-group ">
+                                <label for="lastName">នាមខ្លួន</label>
+                                <input type="text" class="form-control"  value="<%= qrcard[0].last_name  %>" disabled
+                                    placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="col-6 px-1  mt-2">
+                            <div class="form-group ">
+                                <label for="gender">ភេទ</label>
+                                <input type="text" class="form-control"  value="<%= qrcard[0].gender == 1? "ប្រុស":"ស្រី"  %>" disabled
+                                    placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="col-6 px-1 mt-2">
+                            <div class="form-group">
+                                <label for="birthDate">ថ្ងៃខែកំណើត</label>
+                                <input type="text" class="form-control" value="<%= qrcard[0].dob  %>" disabled>
+                            </div>
+                        </div>
+                        <div class="col-6 px-1 mt-3">
+                            <div class="form-group">
+                                <label for="birthDate">អុីម៉ែល</label>
+                                <input type="text" class="form-control" value="<%= qrcard[0].email  %>" disabled>
+                            </div>
+                        </div>
+                        <div class="col-6 px-1 col-md-6 col-sm-6  mt-3">
+                            <div class="form-group">
+                                <label for="numPhone">លេខទូរសព្ទ</label>
+                                <input type="text" class="form-control" id="phone" disabled
+                                    placeholder="01234567" value="<%= qrcard[0].phone  %>">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row ">
+                        <div class="col-lg-12 col-md-6 col-sm-6 px-1 m-top">
+                            <div class="form-group ">
+                                <label for="firstName">នាយកដ្ឋាន</label>
+                                <input type="text" class="form-control" value="<%= qrcard[0].department_id ===  1 ? "Web Development":"Mobile Development"  %>" disabled>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-6 col-sm-6 px-1  mt-2">
+                            <div class="form-group ">
+                                <label for="position">មុខតំណែង</label>
+                                <input type="text" class="form-control" value="<%= qrcard[0].position_id ===1 ? "Web Developer": "Mobile Developer"  %>" disabled>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-6 col-sm-6 mt-2 px-1 ">
+                            <div class="form-group">
+                                <label for="birthDate">ថ្ងៃចូលធ្វើការ</label>
+                                <input type="text" class="form-control" value="<%= qrcard[0].hire_date %>" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 ps-0  mt-3">
+                    <div class="form-group">
+                        <label for="address">អាស័យដ្ខាន</label>
+                        <textarea class="form-control" id="address" disabled
+                            rows="6" style="height: 100px; background-color: #e9f0fd" ><%= qrcard[0].address %></textarea>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

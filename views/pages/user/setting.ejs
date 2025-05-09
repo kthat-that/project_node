@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../../partials/head.ejs') %>
+<body class="page-profile-user">
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+		<%- include('../../partials/nav-header.ejs') %>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+		
+		<!--**********************************
+            Chat box start
+        ***********************************-->
+        
+		<!--**********************************
+            Chat box End
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <a href="/home-screen" class="brand-logo mt-2 margin-logo">
+                    <i class="bi bi-arrow-left display-5"></i>
+                    <!-- <img src="/images/responsive-icon/back-icon.png" id="logo" alt="Logo" style="width: -60px !important;"> -->
+                </a> 
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+							<div class="dashboard_bar">
+                                User
+                            </div>
+                        </div>
+                        <%- include('../../partials/header-user.ejs') %>
+                    </div>
+				</nav>
+			</div>
+		</div>
+                    
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <%- include('../../partials/sidebar-user.ejs')  %>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body user-profile">
+            <div class="container-fluid">
+                <!-- row -->
+                <div class="row card p-3">
+                    <div class="col-lg-12">
+                        <div class="text-profile d-flex mt-3">
+                            <i class="bi bi-pencil-square  text-primary fs-2 mt-1 me-2 "></i>
+                            <h2 class=""> គ្របគ្រងគណនី</h2>
+                        </div>
+                        <div class="card profile card-body px-3 pb-4 pb-0 mt-4"> 
+                            <div class="profile-head">
+                                <div class="profile-info">
+                                    <div class="d-flex justify-content-center mb-4 ">
+                                        <img src="images/pic3.jpg" id="output"
+                                            class="img-fluid rounded-circle position-relative"
+                                            style="max-width: 150px;" alt="">
+                                        <!-- <div class="align-items-center d-flex justify-content-center position-absolute " >
+                                            <label for="profile"
+                                                class="fw-medium text-black change-img change-img1"
+                                                role="button" data-bs-toggle="modal" data-bs-target="#changeImg">
+                                                <i class="bi bi-camera-fill"></i>
+                                            </label>   
+                                        </div> -->
+                                    </div>    
+                                    <div class="profile-details pt-2">
+                                        <div class="profile-name ms-3 pt-2">
+                                            <span class=" bg-success-light rounded px-3 align-items-center  py-1 text-success " style="background-color: rgb(218, 255, 220);"><i
+                                                class="bi bi-record-fill  "></i> Active
+                                            </span>
+                                            <h2 class="text-primary mb-0 fw-bold pt-1">Tom Alison</h2>
+                                            <p class="fs-4 py-0">អ្នកអភិវឌ្ឍគេហទំព័រ</p>
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <div class="d-flex justify-content-end text-warning ">
+                                            <button type="button" data-bs-toggle="modal" data-bs-target="#logout"
+                                                class="btn bg-danger text-white btn-style p-0"> <i class="bi bi-box-arrow-left  me-3"></i>ចាកចេញពីគណនី
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-card flex-row  d-flex justify-content-between py-3 ">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="present text-center align-content-center">
+                                    <h4 class="mb-0 text-success">Present</h4>
+                                    <h2 class="mb-0 text-success fw-bold">110</h2>
+        
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="absent text-center align-content-center">
+                                    <h4 class="mb-0 text-danger">Present</h4>
+                                    <h2 class="mb-0 text-danger fw-bold">3</h2>
+        
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="permission text-center bg-transparent align-content-center">
+                                    <h4 class="mb-0 text-warning">Permission</h4>
+                                    <h2 class="mb-0 text-warning fw-bold">3</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="setting mt-4 px-2" >
+                        <h5 class="ps-3 ">គណនី</h5>
+                        <a href="/profile" class="dropdown-item ai-icon">
+                            <span class="mb-4">
+                                <i class="bi bi-person me-3">
+                                </i>ព័ត៌មានផ្ទាល់ខ្លួន</span>
+                        </a>
+                        <a href="" class="dropdown-item ai-icon">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <span><i class="bi  bi-bell me-3"></i>Notifications</span>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="notificationsToggle" checked>
+                                </div>
+                            </div>
+                        </a>
+                        <h5 class="ps-3 pt-2">Pormission</h5>
+                        <a href="" class="dropdown-item ai-icon">
+                            <div class="d-flex align-items-center justify-content-between"> 
+                                <span class=""><i class="bi bi-person-gear  me-3"></i>Allow access camera</span>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="cameraToggle" checked>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="dropdown-item ai-icon">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <span class=""> <i class="bi bi-person-gear me-3"></i>Location</span>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="cameraToggle" checked>
+                                </div>
+                            </div>
+                        </a>    
+                        <a href="page-error-404.html" class="dropdown-item ai-icon">
+                            <div class="d-flex align-items-center text-danger"> 
+                                <span class=""><i class="bi bi-box-arrow-left  me-3"></i>ចាកចេញពីគណនី</span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <%- include('../../partials/footer.ejs') %>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+    </div>
+
+    <!--  Scripts -->
+    <%- include('../../partials/logoutScr.ejs') %>
+    <!-- <script src="/vendor/chart/chart.js"></script> -->
+    <script src="js/sidebar-user.js"></script>
+    
+     
+    
+</body>
+</html>

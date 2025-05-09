@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/vendor/sweetalert2/dist/sweetalert2.min.css">
+<style>
+    #reader {
+        overflow: hidden;
+        width: 100%;
+        max-width: 400px;
+        height: 360px;
+        margin: 0 auto;
+    }
+
+    video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 250px;
+        height: 250px;
+        border-radius: 10px;
+        pointer-events: none;
+    }
+
+    .overlay .scan-frame {
+        position: absolute;
+        width: 250px;
+        height: 250px;
+        top: 0;
+        left: 0;
+    }
+
+    .overlay .scan-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .overlay .scan {
+        width: 100%;
+        height: 1.5px;
+        background-color: cyan;
+        box-shadow: 0px 0px 8px 10px rgba(0, 255, 255, 0.404);
+        animation: scanning 1.5s linear alternate infinite;
+    }
+
+    @keyframes scanning {
+        0% {
+            transform: translatey(0px);
+        }
+
+        100% {
+            transform: translatey(250px);
+        }
+    }
+</style>
+
+<%- include('../../partials/head.ejs') %>
+
+    <body class="home-page-user">
+
+        <!--*******************
+        Preloader start
+    ********************-->
+        <%- include('../../partials/preloader.ejs') %>
+            <!--*******************
+        Preloader end
+    ********************-->
+
+            <!--**********************************
+        Main wrapper start
+    ***********************************-->
+            <div id="main-wrapper">
+
+                <!--**********************************
+            Nav header start
+        ***********************************-->
+                <%- include('../../partials/nav-header.ejs') %>
+                    <!--**********************************
+            Nav header end
+        ***********************************-->
+
+                    <!--**********************************
+            Chat box start
+        ***********************************-->
+
+                        <!--**********************************
+            Chat box End
+        ***********************************-->
+
+                        <!--**********************************
+            Header start
+        ***********************************-->
+                        <div class="header">
+                            <div class="header-content">
+                                <a href="/" class="brand-logo">
+                                    <img src="/images/logo/white-logo.png " id="logo" alt="Logo" style="width: 120px;">
+                                </a>
+                                <nav class="navbar navbar-expand">
+                                    <div class="collapse navbar-collapse justify-content-between">
+                                        <div class="header-left">
+                                            <div class="dashboard_bar">
+                                                User
+                                            </div>
+                                        </div>
+                                        <%- include('../../partials/header-user.ejs') %>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+
+                        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+                        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <%- include('../../partials/sidebar.ejs') %>
+                            <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+                            <!--**********************************
+            Content body start
+        ***********************************-->
+                            <div class="content-body user">
+                                <div class="container-fluid ">
+                                    <!-- row -->
+                                    <div class="full-homepage d-lg-block ">
+                                        <h3 class="pb-2 lastname">
+                                        </h3>
+                                        <div class="row">
+                                            <div class="col-lg-8 col-md-12">
+                                                <div class="row ">
+                                                    <div class="col-lg-7 col-md-6 col-sm-12">
+                                                        <div class="card card-costom flex-row">
+                                                            <div class="pb-5 ps-5 mt-5">
+                                                                <h4 class="text-white mb-0"> ស្វាគមន៍ការត្រឡប់មកវិញ!
+                                                                </h4>
+                                                                <p class="text-white">សូមស្កេនវត្តមានសម្រាប់ថ្ងៃនេះ</p>
+                                                                <button
+                                                                    class="btn-scan fw-medium bg-white text-primary "
+                                                                    id="btn-scan"><i
+                                                                        class="bi bi-qr-code-scan me-3"></i>ស្កេនវត្តមាន</button>
+                                                            </div>
+                                                            <img src="images/icon-1.png" alt="imge-1"
+                                                                class="mt-3 mt-md-0 imge-1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-5 col-md-6 col-sm-12">
+
+                                                        <div class="card card-costom bg-primary-light  ">
+                                                            <div class="title1 ps-5 ">
+                                                                <h4 class="text-primary mb-0"> ស្នើរច្បាប់</h4>
+                                                                <p class="text-primary ">បំពេញពាក្យសុំច្បាប់នៅទីនេះ!</p>
+                                                                <button
+                                                                    class="btn-scan fw-medium btn-primary text-white "
+                                                                    id="btn-permission"><i
+                                                                        class="bi bi-qr-code-scan me-3"></i>ស្នើរច្បាប់</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="card shadow p-4 perfoment">
+                                                            <div>
+                                                                <h4 class="mb-0">Performance របស់អ្នក!</h4>
+                                                                <p>ពី <span id="from-date"></span> ដល់ <span
+                                                                        id="to-date"></span></p>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="chart-container">
+                                                                        <canvas id="donutChart1"></canvas>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="col-md-6 mt-4">
+                                                                    <div class="row">
+                                                                        <div class="col-6 legend ">
+                                                                            <span class="full-Day"></span>
+                                                                            <div class="flex-column">
+                                                                                <p class="m-0 text-start text-black-50">
+                                                                                    Full-Day</p>
+                                                                                <strong class="display-6 fw-bold py-0"
+                                                                                    id="full-day">55.6%</strong>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-6 legend">
+                                                                            <span class="Absent"></span>
+                                                                            <div class="flex-column">
+                                                                                <p class="m-0 text-black-50">
+                                                                                    Absent</p>
+                                                                                <strong class="display-6 fw-bold py-0"
+                                                                                    id="absent">5.6%</strong>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-6 legend mt-5">
+                                                                            <span class="half-day"></span>
+                                                                            <div class="flex-column">
+                                                                                <p class="m-0 text-black-50">
+                                                                                    Half-Day</p>
+                                                                                <strong class="display-6 fw-bold py-0"
+                                                                                    id="half-day">27.8%</strong>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-6 legend mt-5 ">
+                                                                            <span class="permission"></span>
+                                                                            <div class="flex-column">
+                                                                                <p class="m-0 p-0 text-black-50">
+                                                                                    Permission</p>
+                                                                                <strong class="display-6 fw-bold py-0"
+                                                                                    id="permission">11.1%</strong>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-12 order-sm-first os">
+                                                <div class="row ">
+                                                    <div class="col-lg-12 col-md-6 ">
+                                                        <div class="card profile card card-body pb-4  pb-0">
+                                                            <div class="profile-head">
+                                                                <div class="profile-info d-flex justify-content-center">
+                                                                    <div class="profile-photo">
+                                                                        <img 
+                                                                            class="rounded-circle avatar" alt=""
+                                                                            style="width: 140px;">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="profile-details">
+                                                                    <div class="profile-name text-center mb-4">
+                                                                        <h2 class="text-primary mb-0 fw-bold fullname">
+                                                                           
+                                                                        </h2>
+                                                                        <h4 class="text-black-50 position">
+                                                                            អ្នកអភិវឌ្ឍគេហទំព័រ
+                                                                        </h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12 col-md-6 ">
+                                                        <div class="card card1 card-body pb-4  pb-0">
+                                                            <div
+                                                                class="card card-bg flex-row px-3 py-2 mb-3 align-items-center">
+                                                                <img src="/images/icon/icon-1.png" alt="" class="me-3"
+                                                                    style="width: 26px; height: 25px;">
+                                                                <h4 class="pt-1 text-primary dep">Web Development</h4>
+                                                            </div>
+                                                            <div
+                                                                class="card card-bg flex-row px-3 py-2 mb-3 align-items-center">
+                                                                <img src="/images/icon/phone.png" alt="" class="me-3"
+                                                                    style="width: 26px; height: 25px;">
+                                                                <h4 class="pt-1 text-primary phone">0987237283</h4>
+                                                            </div>
+                                                            <div
+                                                                class="card card-bg flex-row px-3 py-2 mb-3 align-items-center">
+                                                                <img src="/images/icon/mail.png" alt="" class="me-3"
+                                                                    style="width: 26px; height: 25px;">
+                                                                <h4 class="pt-1 text-primary email">
+                                                             
+                                                                </h4>
+                                                            </div>
+                                                            <div
+                                                                class="card card-bg flex-row px-3 py-2 mb-3 align-items-center">
+                                                                <img src="/images/icon/address.png" alt="" class="me-3"
+                                                                    style="width: 26px; height: 25px;">
+                                                                <h4 class="pt-1 text-primary address">ខ័ណ្ឌសែនសុខ
+                                                                    ភ្នំពេញ</h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <section
+                                class="homepage-container position-relative d-flex flex-column align-items-center justify-content-center d-lg-none">
+
+                                <div class="back-frame position-absolute"></div>
+                                <main class="homepage-main px-3">
+                                    <section class="main-info mb-4 p-4">
+                                        <div class="time-info card">
+                                            <div class="row">
+                                                <div class="col-7">
+                                                    <h2 class="mb-1 fs-2 fw-semibold fullname"></h2>
+                                                    <h5 class="mb-2">ID: 00793829</h5>
+                                                    <div class="current-time d-flex gap-2">
+                                                        <div class="img-icon">
+                                                            <img src="/icons/mobile/time.png"
+                                                                class="w-100 h-100 object-fit-cover" alt="">
+                                                        </div>
+                                                        <h2 class="fw-semibold" id="current-time">09:03:45</h2>
+                                                    </div>
+                                                    <span id="tell-msg"></span>
+                                                </div>
+                                                <div class="col-5 d-flex justify-content-center">
+                                                    <div class="home-profile overflow-hidden">
+                                                        <img  alt=""
+                                                            class="w-100 h-100 object-fit-cover avatar">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=" d-flex justify-content-between gap-3 mt-3">
+                                            <a href="/user/scanner" class="btn btn-checkin px-3 w-50"
+                                                id="btn-checkin">Check In</a>
+                                            <a href="/user/scanner" class="btn btn-checkout px-3 w-50"
+                                                id="btn-checkout">Check Out</a>
+                                        </div>
+                                    </section>
+                                    <section class="main-menu">
+                                        <div class="row g-3">
+                                            <div class="col-6">
+                                                <a href="/attendace" class="menu-box">
+                                                    <div class="menu-icon">
+                                                        <img src="/images/responsive-icon/attendace.png"
+                                                            class="w-100 h-100 object-fit-cover" alt="">
+                                                    </div>
+                                                    <h4 class="menu-title mb-0">វត្តមាន</h4>
+                                                </a>
+                                            </div>
+                                            <div class="col-6">
+                                                <a href="/request-atten" class="menu-box">
+                                                    <div class="menu-icon">
+                                                        <img src="/images/responsive-icon/leave.png"
+                                                            class="w-100 h-100 object-fit-cover" alt="">
+                                                    </div>
+                                                    <h4 class="menu-title mb-0">សុំច្បាប់</h4>
+                                                </a>
+                                            </div>
+                                            <div class="col-6">
+                                                <a href="/ot" class="menu-box">
+                                                    <div class="menu-icon">
+                                                        <img src="/images/responsive-icon/ot.png"
+                                                            class="w-100 h-100 object-fit-cover" alt="">
+                                                    </div>
+                                                    <h4 class="menu-title mb-0">ថែមម៉ោង</h4>
+                                                </a>
+                                            </div>
+                                            <div class="col-6">
+                                                <a href="/payroll-user" class="menu-box">
+                                                    <div class="menu-icon d-flex align-items-center">
+                                                        <img src="/images/responsive-icon/payroll.png" class="w-100"
+                                                            alt="">
+                                                    </div>
+                                                    <h4 class="menu-title mb-0">ប្រាក់បៀវត្សន៍</h4>
+                                                </a>
+                                            </div>
+                                            <div class="col-6">
+                                                <a href="/performenace" class="menu-box">
+                                                    <div class="menu-icon">
+                                                        <img src="/images/responsive-icon/performance.png"
+                                                            class="w-100 h-100 object-fit-cover" alt="">
+                                                    </div>
+                                                    <h4 class="menu-title mb-0">ផលិតភាព </h4>
+                                                </a>
+                                            </div>
+                                            <div class="col-6">
+                                                <a href="setting" class="menu-box">
+                                                    <div class="menu-icon">
+                                                        <img src="/images/responsive-icon/setting.png"
+                                                            class="w-100 h-100 object-fit-cover" alt="">
+                                                    </div>
+                                                    <h4 class="menu-title mb-0">ការកំណត់</h4>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </main>
+                            </section>
+
+            </div>
+            
+            <%- include('../../partials/logoutScr.ejs') %>
+                <script src="/js/auth/profile.js"></script>
+                <script src="js/sidebar-user.js"></script>
+                <script src="/js/user/homescreen.js" type="module"></script>
+
+    </body>
+
+</html>

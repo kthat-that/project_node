@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs') %>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        canvas {
+            width: 100% !important;
+            height: 400px !important;
+        }
+        
+        .chart-container {
+            width: 80%;
+            max-width: 900px;
+            height: 400px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .legend div {
+            display: flex;
+            align-items: center;
+            color: #666;
+        }
+
+        .legend span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-right: 5px;
+            border-radius: 50%;
+        }
+
+        .daily { background: #3A6FF8; }
+        .weekly { background: #B0B0B0; }
+        .monthly { background: #D0D0D0; }
+    </style>
+
+
+    <body class="page-attandace-emp">
+
+        <!--*******************
+        Preloader start
+    ********************-->
+        <%- include('../partials/preloader.ejs') %>
+            <!--*******************
+        Preloader end
+    ********************-->
+
+            <!--**********************************
+        Main wrapper start
+    ***********************************-->
+            <div id="main-wrapper">
+
+                <!--**********************************
+            Nav header start
+        ***********************************-->
+                <%- include('../partials/nav-header.ejs') %>
+                    <!--**********************************
+            Nav header end
+        ***********************************-->
+
+                    <!--**********************************
+            Chat box start
+        ***********************************-->
+                        <!--**********************************
+            Chat box End
+        ***********************************-->
+
+                        <!--**********************************
+            Header start
+        ***********************************-->
+                        <%- include('../partials/header.ejs') %>
+
+                            <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+                            <!--**********************************
+            Sidebar start
+        ***********************************-->
+                            <%- include('../partials/sidebar.ejs') %>
+                                <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+                                <!--**********************************
+            Content body start
+        ***********************************-->
+                                <div class="content-body">
+                                    <div class="container-fluid">
+
+                                        <div class="row page-titles">
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item active"><a
+                                                        href="javascript:void(0)">បុគ្គលិក</a></li>
+                                                <li class="breadcrumb-item">Dashboard</li>
+                                            </ol>
+                                        </div>
+
+                                        <!-- row -->
+
+                                        <div class="row">
+                                            <div class="col-12 ">
+                                                <div class="row">
+                                                    <div class="col-xl-12">
+                                                        <div class="row">
+                                                            <div class="col-xl-4 col-lg-4  col-md-6 col-12 pb-0">
+                                                                <div class="card pb-0 bg-black">
+                                                                    <div
+                                                                        class="card-body d-flex mt-3 px-5 justify-content-between">
+                                                                        <div class="sunrise mt-1">
+                                                                            <img src="icons/flaticon/sunshine.png"
+                                                                                alt="Sun Icon">
+                                                                        </div>
+                                                                        <div class="night mt-1 d-none">
+                                                                            <img src="icons/flaticon/half-moon.png"
+                                                                                alt="Night Icon">
+                                                                        </div>
+                                                                        <div>
+                                                                            <h2 class="pb-0  text-primary "
+                                                                                id="realTimeClock">Loading...</h2>
+                                                                            <p class="fs-6 mt-0 pt-0 ms-1">Real-time
+                                                                                insight</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div
+                                                                        class="card-footer border-0 pt-0 mt-3 mb-3 px-5">
+                                                                        <div class="pb-0 mb-0 ">
+                                                                            <h3 class="text-black-50">Today:</h3>
+                                                                            <h2 class="" id="realDate">Loading...</h2>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-xl-8 col-lg-8  col-md-6  col-12">
+                                                                <div class="row">
+                                                                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                                                                        <div class="card pb-4">
+                                                                            <div class="card-body mt-0 pt-3 px-4 pb-0">
+                                                                                <div
+                                                                                    class="d-flex justify-content-between">
+                                                                                    <h2 class="fs-2 fw-bold text-primary"
+                                                                                        id="total_employee"></h2>
+                                                                                    <div class="user-icon">
+                                                                                        <i
+                                                                                            class="bi bi-buildings icon"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <h3 class="fs-4 text-black-50">
+                                                                                        ដេប៉ាតឺម៉ង់សរុប</h3>
+
+                                                                                    <i class="fa-solid fa-plus"></i>
+                                                                                    <span class="fs-6">&nbsp; នៅក្នុងឆ្នាំនេះ</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                                                                        <div class="card pb-4">
+                                                                            <div class="card-body mt-0 pt-3 px-4 pb-0">
+                                                                                <div
+                                                                                    class="d-flex justify-content-between">
+                                                                                    <h2 class="fs-2 fw-bold text-success"
+                                                                                        id="empTotal"></h2>
+                                                                                    <div class="user-icon">
+                                                                                        <i
+                                                                                            class="bi bi-people icon"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <h3 class="fs-4 text-black-50">
+                                                                                        បុគ្គលិកសរុប</h3>
+
+                                                                                    <i
+                                                                                        class="fa-solid fa-arrow-trend-down"></i>
+                                                                                    <span class="fs-6">&nbsp; ក្នុងពេលបច្ចុប្បន៏</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                                                                        <div class="card pb-4">
+                                                                            <div class="card-body mt-0 pt-3 px-4 pb-0">
+                                                                                <div
+                                                                                    class="d-flex justify-content-between">
+                                                                                    <h2 class="fs-2 fw-bold text-warning"
+                                                                                        id="leave"></h2>
+                                                                                    <div class="user-icon">
+                                                                                        <i
+                                                                                            class="bi bi-person-up icon"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <h3 class="fs-4 text-black-50">
+                                                                                        ស្នើរច្បាប់</h3>
+
+                                                                                    <i
+                                                                                        class="fa-solid fa-arrow-trend-down"></i>
+                                                                                    <span class="fs-6">&nbsp; នៅក្នុងខែនេះ</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                                                                        <div class="card pb-4">
+                                                                            <div class="card-body mt-0 pt-3 px-4 pb-0">
+                                                                                <div
+                                                                                    class="d-flex justify-content-between">
+                                                                                    <h2 class="fs-2 fw-bold text-danger"
+                                                                                        id="positionTotal"></h2>
+                                                                                    <div class="user-icon">
+                                                                                        <i
+                                                                                            class="bi bi-briefcase icon"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <h3 class="fs-4 text-black-50">
+                                                                                        តួនាទីសរុប</h3>
+
+                                                                                    <i
+                                                                                        class="fa-solid fa-arrow-trend-up"></i>
+                                                                                    <span class="fs-6"> នៅក្នុងឆ្នាំនេះ</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                                                                        <div class="card pb-4">
+                                                                            <div class="card-body mt-0 pt-3 px-4 pb-0">
+                                                                                <div
+                                                                                    class="d-flex justify-content-between">
+                                                                                    <h2 class="fs-2 fw-bold text-danger"
+                                                                                        id="payrollTotal"></h2>
+                                                                                    <div class="user-icon">
+                                                                                        <i
+                                                                                            class="bi bi-credit-card icon"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <h3 class="fs-4 text-black-50">
+                                                                                        ប្រាក់បៀវត្សន៍</h3>
+
+                                                                                    <i
+                                                                                        class="fa-solid fa-arrow-trend-up"></i>
+                                                                                    <span class="fs-6"> ប្រាក់សរុបនៅចុងខែមុន</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                                                                        <div class="card pb-4">
+                                                                            <div class="card-body mt-0 pt-3 px-4 pb-0">
+                                                                                <div
+                                                                                    class="d-flex justify-content-between">
+                                                                                    <h2 class="fs-2 fw-bold text-danger"
+                                                                                        id="OTtotal"></h2>
+                                                                                    <div class="user-icon pe-1">
+                                                                                        <i
+                                                                                            class="bi bi-plus-circle icon"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <h3 class="fs-4 text-black-50">
+                                                                                        ម៉ោងបន្ថែម</h3>
+
+                                                                                    <i
+                                                                                        class="fa-solid fa-arrow-trend-up"></i>
+                                                                                    <span class="fs-6"> នៅក្នុងខែនេះ</span>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h3 class="fw-bold mb-0">របាយទិន្នន័យបុគ្គលិក</h3>
+                                            <div class="row p-0 m-0">
+                                                <div class="row my-2 g-4">
+                                                    <div class="col-xl-4 col-lg-4 col-sm-6 col-12">
+                                                        <div class="p-4 bg-white"
+                                                            style="border-radius: 20px !important;">
+                                                            <h3 class="fw-medium fs-4 text-black-50 text-center">
+                                                                ទិន្នន័យបុគ្គលិកទៅតាមភេទ</h3>
+                                                            <div class="rounded-5">
+                                                                <canvas id="myChart"
+                                                                    style="width:100%; max-width:600px; height:400px;"></canvas>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-4 col-lg-4 col-sm-6 col-12">
+                                                        <div class="p-4 bg-white"
+                                                            style="border-radius: 20px !important;">
+                                                            <h3 class="fw-medium fs-4 text-black-50">Attendance
+                                                                Performance</h3>
+                                                            <div class="rounded-5">
+                                                                <div id="myChart1"
+                                                                    style="width:100%; max-width:600px; height:400px;">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-4 col-lg-4 col-sm-6 col-12">
+                                                        <div class="p-4 bg-white"
+                                                            style="border-radius: 20px !important;">
+                                                            <h3 class="fw-medium fs-4 text-black-50">
+                                                                ទិន្នន័យបុគ្គលិកទៅតាមតួនាទី</h3>
+                                                            <div class="rounded-5">
+                                                                <div id="myPlot" style="width:100%; height: 400px;">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="p-4 bg-white"
+                                                            style="border-radius: 20px !important;">
+                                                            <h3 class="fw-medium fs-4 text-black-50">
+                                                                របាយទិន្នន័យប្រៀបធៀបវត្តមានបុគ្គលិក</h3>
+                                                            <div class="rounded-5">
+
+                                                                <div class="chart-container">
+                                                                    <canvas id="attendanceChart"></canvas>
+                                                                </div>
+
+                                                                <div class="legend">
+                                                                    <div><span class="daily"></span> Daily</div>
+                                                                    <div><span class="weekly"></span> Weekly</div>
+                                                                    <div><span class="monthly"></span> Monthly</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <%- include('../partials/logoutScr.ejs') %>
+                                    <script src="/vendor/momentjs/moment.js"></script>
+                                    <script src="/js/attendance.js"></script>
+                                    <script src="/js/statistic/attendance.js"></script>
+                                    <script src="js/overscript/adminHome.js"></script>
+                             
+      
+
+    </body>
+
+</html>

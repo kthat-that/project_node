@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs') %>
+<body class="page-generate-qr">
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <%- include('../partials/preloader.ejs') %>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+		<%- include('../partials/nav-header.ejs') %>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+		
+		<!--**********************************
+            Chat box start
+        ***********************************-->
+		<!--**********************************
+            Chat box End
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <%- include('../partials/header.ejs') %>
+                    
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <%- include('../partials/sidebar.ejs')  %>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+                 <!-- row -->
+                <div class="row">
+                    <h3 class="mt-0 mb-4">Attendance QR Code</h3>
+                    <div class="card d-flex justify-content-center">
+                        <div class="card-bg d-flex justify-content-center align-items-center text-center">
+                            <div class="flex-column">
+                                <p>ខាងក្រោមនេះជាQR Code សម្រាប់Scan វត្តមានបុគ្គលិក</p>
+                                <img src="/images/attendance-QR.jpg" clas alt="" style="width: 270px; " class="mb-3"> <br>
+                                <a  href="/images/idCard/qr1.jpg" download="qr1.jpg">
+
+                                    <button class="btn btn-download py-0" style="width: auto;"><i class="bi bi-cloud-arrow-down-fill "></i> ទាញយកឥឡូវនេះ</button>
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    
+        
+    </div>
+    
+    
+
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    
+    <%- include('../partials/logoutScr.ejs') %>
+    
+    
+</body>
+</html>

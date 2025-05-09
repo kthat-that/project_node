@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../../partials/head.ejs') %>
+<body class="page-payroll-admin">
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <%- include('../../partials/preloader.ejs') %>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+		<%- include('../../partials/nav-header.ejs') %>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+		
+		<!--**********************************
+            Chat box start
+        ***********************************-->
+		
+		<!--**********************************
+            Chat box End
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <%- include('../../partials/header.ejs') %>
+                    
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <%- include('../../partials/sidebar.ejs')  %>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+         
+                <div class="row page-titles">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item active"><a href="javascript:void(0)">បុគ្គលិក</a></li>
+						<li class="breadcrumb-item">ប្រាក់បៀវត្សរ៍</li>
+					</ol>
+                </div>
+                <!-- row -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-4 col-md-6 ">
+                        <div class="card pb-4">
+                            <div class="card-body py-4 pb-0">
+                                <div class="d-flex justify-content-between">
+                                    <h2 class=" text-primary pt-0" id="total_payaCost">$</h2>
+                                    <div class="user-icon bg-primary-light">
+                                        <i class="fa-solid fa-circle-dollar-to-slot text-primary"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <h4 class="text-black-50">Totals Payroll Cost</h4>
+
+                                    <!-- <i class="fa-solid fa-plus"></i> -->
+                                    <i class="fa-solid fa-arrow-trend-up mt-2"></i>
+                                    <span class="fs-5 pt-1">&nbsp;+3% from jan</span>    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4  col-md-6 col-12">
+                        <div class="card pb-4">
+                            <div class="card-body py-4 pb-0">
+                                <div class="d-flex justify-content-between">
+                                    <h2 class="text-success" id="total_employee_paid"></h2>
+                                    <div class="user-icon bg-success-light">
+                                        <i class="fa-solid fa-user-group text-success"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <h4 class="text-black-50">Total Employees Paid</h4>
+                                    <i class="fa-solid fa-arrow-trend-up mt-2"></i>
+                                    <span class="fs-5 pt-1">&nbsp;+3 people</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4  col-md-6 col-12">
+                        <div class="card pb-4">
+                            <div class="card-body py-4 pb-0">
+                                <div class="d-flex justify-content-between">
+                                    <h2 class="text-warning" id="pending_pay"></h2>
+                                    <!-- <span class="fs-6 ps-1">Employees</span> -->
+                                    <div class="user-icon bg-warning-light ">
+                                        <i class="fa-solid fa-file-invoice text-warning"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <h4 class="text-black-50">Pending Payments</h4>
+                                    <i class="fa-solid fa-plus mt-2"></i>
+                                    <span class="fs-5  pt-1">&nbsp;$2100</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4  col-md-6 col-12">
+                        <div class="card pb-4">
+                            <div class="card-body py-4 pb-0">
+                                <div class="d-flex justify-content-between">
+                                    <h2 class="text-info" id="avg_salary"></h2>
+                                    <div class="user-icon bg-info-light">
+                                        <i class="fa-solid fa-money-bill-trend-up text-info"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-black-50">Average Salary</h4>
+                                    <i class="fa-solid fa-arrow-trend-down mt-2"></i>
+                                    <span class="fs-5  pt-1">&nbsp;$2100</span>
+      
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="card pb-3">
+                            <div class="card-header w-100 pb-3 mb-0 d-flex justify-content-between border-0">
+                                <div class="ot w-100 d-flex align-items-center justify-content-between">
+                                  
+                                    <div class="shows d-flex justify-content-around position-relative"></div>
+                                    <div class="left-item d-flex align-items-center pb-2 justify-content-evenly ">
+                                        <input type="search" class="search me-4" id="search" placeholder="ស្វែងរក..." >
+                                        <div class="filter me-4">
+                                            <span><i class="fa-solid fa-filter"></i></span>&nbsp; Filter
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="card-body mt-0 pt-0 card-style">
+                                <div class="table-responsive">
+                                    <table class="table  table-bordered table-responsive-sm" border="1">
+                                        <thead class="bg-primary-light">
+                                            <tr class="">
+                                                <th class="ps-4">ល.រ</th>
+                                                <th >ឈ្មោះបុគ្គលិក</th>
+                                                <th>ប្រាក់បន្ថែមម៉ោង​</th>
+                                                <th>Bonus</th>
+                                                <th >កាលបរិច្ឆេទ បើកប្រាក់ខែ</th>
+                                                <th>ប្រាក់ខែគោល</th>
+                                                <th>ប្រាក់បៀវត្សរ៍</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbl_payrolls-emp">
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="amount mt-2 ps-4">
+                                    <p class="fs-4 fw-medium totalValue"></p>
+                                  </div>
+
+                               <!-- Pagination -->
+                                <nav aria-label="Page navigation" class="w-100 pb-3">
+                                    <div id="pagination"></div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal payrolls-emp fade mb-4" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered ">
+                <div class="modal-content mb-4">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-3 fw-medium" id="editModalLabel">កែតម្រូវ PayRoll</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body pb-3 pt-3 mt-0 border-0">
+                        <form action="" id="editPayrollForm">
+                            <div class="mb-3">
+                                <label for="edit_bonus" class="form-label">Bonus</label>
+                                <input type="text" class="form-control bg-transparent fs-5" id="edit_bonus" placeholder="">
+                            </div>
+                            <input type="hidden" id="edit_payroll_id">
+                            <div class="mb-3">
+                                <label for="edit_paydate" class="form-label">កាលបរិច្ឆេទបើកប្រាក់ខែ</label>
+                                <input type="date" class="form-control bg-transparent fs-5" id="edit_paydate" placeholder="">
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class=" d-flex justify-content-center foot border-0 mb-4 mx-4">
+                        <button type="button" class="btn btn-danger text-center fs-4 w-50 mx-2"  data-bs-dismiss="modal" style="height: 46px !important;">
+                            <span class="me-2 text-center"><i class="fa-solid fa-x"></i></span>បោះបង់
+                        </button>
+                        <button type="submit" class="btn btn-primary text-center submit fs-4 w-50 mx-2" onclick="editPayroll()" style="height: 46px !important;">
+                            <span class="me-2 text-center"><i class="fa-solid fa-download "></i></span>រក្សាទុក
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal -->
+        <div class="modal pay-delete fade mb-4 style-modal" id="deleteModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content mb-4">
+                <div class="modal-body pb-0 border-0">
+                    
+                    <div class="">
+                        <span class="fs-1 pb-2 text-danger"><i class="fa-solid fa-circle-exclamation"></i></span>
+                        <h3 class="fs-3 pb-0">លុប Payroll</h3>
+                        <p class="pt-0 mt-0 fs-4">តើអ្នកប្រាកដថាចង់លុប Payroll នេះទេ? សកម្មភាពនេះមិនអាចត្រឡប់វិញបានទេ។</p>
+                     </div>
+                     <input type="hidden" id="delete_payroll_id">
+                </div>
+
+                <div class=" d-flex justify-content-center border-0 d-flex mb-4 mx-4">
+                
+                    <button type="button" class="btn btn-outline-dark text-center w-50 mx-2" data-bs-dismiss="modal" style="height: 44px !important; padding-top: 10px;"> បោះបង់</button>
+                    <button type="submit" class="btn btn-danger text-center w-50 mx-2 " onclick="deletePayroll()" style="height: 44px !important; padding-top: 10px;"> លុប</button>
+                   
+                </div>
+            </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <%- include('../../partials/footer.ejs') %>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+        
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    
+    <%- include('../../partials/logoutScr.ejs') %>
+    <script src="/vendor/momentjs/moment.js"></script>
+    <script src="/js/overscript/modalpayroll.js"></script>
+    <script src="/js/payrolls.js"></script>
+    <script src="/js/statistic/payrolls.js"></script>
+</body>
+</html>

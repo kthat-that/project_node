@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs') %>
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <%- include('../partials/preloader.ejs') %>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+		<%- include('../partials/nav-header.ejs') %>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+		
+		<!--**********************************
+            Chat box start
+        ***********************************-->
+		<!--**********************************
+            Chat box End
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+							<div class="dashboard_bar">
+                                គណនី
+                          </div>
+                        </div>
+                        <%- include('../partials/header.ejs') %>
+                    </div>
+				</nav>
+			</div>
+		</div>
+                    
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <%- include('../partials/sidebar.ejs')  %>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item active"><a href="">គណនី</a></li>
+						<li class="breadcrumb-item"><a href="">បញ្ជីអ្នកប្រើប្រាស់</a></li>
+					</ol>
+                </div>
+                <!-- row -->
+                <div class="row">
+                    <div class="col-12">                                
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="card pb-3">
+                            
+                            <div class="card-body p-0">
+                                <div class="department d-flex align-items-center justify-content-between ot px-5 py-4 mt-2">
+                                    <div class="shows d-flex justify-content-around position-relative">
+                                          
+                                        </div>
+                                        <div class="left-item d-flex align-items-center pb-2 justify-content-evenly ">
+                                            <input type="search" class="search me-4" id="search" placeholder="ស្វែងរក..." >
+                                            
+                                            <!-- <div class="created">
+                                                <span><i class="bi bi-credit-card" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModalCenter3"></i></span>&nbsp; card
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-responsive px-5">
+									<table class="table table-bordered table-responsive-md ">
+                                        <thead>
+                                            <tr class="bg-primary-light rounded-start-2">                                      
+                                                <th class="ps-3">ID</th>
+                                                <th>ឈ្មោះ</th>						
+                                                <th>Email</th>
+                                                <th>Status</th>  
+                                                <th>Roles</th>  
+												<th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>  
+                                                <td class="ps-3" >001</td>
+                                                <td><div class="d-flex align-items-center"><img src="images/avatar/1.jpg" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">Dr. Jackson</span></div></td>	
+                                                <td class="">example@example.com</td>
+                                                <td><div class="d-flex align-items-center"></div> 1111111</td>
+                                                <td class="">User</td>
+                                                
+                                                <td>
+													<div class="d-flex">
+														<a href="#" class="btn btn-primary shadow btn-xs sharp rounded-1 me-1" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModalCenter"><i class="fas fa-pencil-alt"></i></a>
+														<a href="#" class="btn btn-danger shadow btn-xs sharp rounded-1" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModalCenter1"><i class="fa fa-trash"></i></a>
+													</div>
+												</td>
+                                            </tr>
+											<tr>  
+                                                <td class="ps-3">001</td>
+                                                <td><div class="d-flex align-items-center"><img src="images/avatar/1.jpg" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">Dr. Jackson</span></div></td>	
+                                                <td class="">example@example.com</td>
+                                                <td><div class="d-flex align-items-center"></div> 1111111</td>
+                                                <td class="">Admin</td>
+                                                
+                                                <td>
+													<div class="d-flex">
+														<a href="#" class="btn btn-primary shadow btn-xs sharp rounded-1 me-1" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModalCenter"><i class="fas fa-pencil-alt"></i></a>
+														<a href="#" class="btn btn-danger shadow btn-xs sharp rounded-1" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModalCenter1"><i class="fa fa-trash"></i></a>
+													</div>
+												</td>
+                                            </tr>
+											<tr>  
+                                                <td class="ps-3">001</td>
+                                                <td><div class="d-flex align-items-center"><img src="images/avatar/1.jpg" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">Dr. Jackson</span></div></td>	
+                                                <td class="">example@example.com</td>
+                                                <td><div class="d-flex align-items-center"></div> 1111111</td>
+                                                <td class="">User</td>
+                                                
+                                                <td>
+													<div class="d-flex">
+														<a href="#" class="btn btn-primary shadow btn-xs sharp rounded-1 me-1" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModalCenter"><i class="fas fa-pencil-alt"></i></a>
+														<a href="#" class="btn btn-danger shadow btn-xs sharp rounded-1" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModalCenter1"><i class="fa fa-trash"></i></a>
+													</div>
+												</td>
+                                            </tr>
+                                            <tr>  
+                                                <td class="ps-3">001</td>
+                                                <td><div class="d-flex align-items-center"><img src="images/avatar/1.jpg" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">Dr. Jackson</span></div></td>	
+                                                <td class="">example@example.com</td>
+                                                <td><div class="d-flex align-items-center"></div> 1111111</td>
+                                                <td class="">User</td>
+                                                
+                                                <td>
+													<div class="d-flex">
+														<a href="#" class="btn btn-primary shadow btn-xs sharp rounded-1 me-1" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModalCenter"><i class="fas fa-pencil-alt"></i></a>
+														<a href="#" class="btn btn-danger shadow btn-xs sharp rounded-1" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModalCenter1"><i class="fa fa-trash"></i></a>
+													</div>
+												</td>
+                                            </tr>
+											<tr>  
+                                                <td class="ps-3">001</td>
+                                                <td><div class="d-flex align-items-center"><img src="images/avatar/1.jpg" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">Dr. Jackson</span></div></td>	
+                                                <td class="">example@example.com</td>
+                                                <td><div class="d-flex align-items-center"></div> 1111111</td>
+                                                <td class="">Admin</td>
+                                                
+                                                <td>
+													<div class="d-flex">
+														<a href="#" class="btn btn-primary shadow btn-xs sharp rounded-1 me-1" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModalCenter"><i class="fas fa-pencil-alt"></i></a>
+														<a href="#" class="btn btn-danger shadow btn-xs sharp rounded-1" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModalCenter1"><i class="fa fa-trash"></i></a>
+													</div>
+												</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="amount mt-2 px-5">
+                                    <p class="fs-4 fw-medium">ដេប៉ាតឺម៉ង់សរុប​ 04</p>
+                                </div>
+
+                                <nav aria-label="Page navigation w-100 pb-3">
+                                    <ul class="pagination w-100 d-flex align-items-center justify-content-between">
+                                      <div class="ps-5">
+                                        <li class="page-item disabled previous ">
+                                            <a class="page-link text-dark"><span class="text-dark"><i class="fa-solid fa-arrow-left"></i></span>&nbsp; ថយក្រោយ</a>
+                                          </li>
+                                      </div>
+                                      <div class="d-flex justify-content-center align-items-center">
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">.</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">.</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">8</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">9</a></li>
+                                      </div>
+                                      <div class="pe-5">
+                                        <li class="page-item next">
+                                            <a class="page-link" href="#">បន្ត&nbsp; <span class="text-dark"><i class="fa-solid fa-arrow-right"></i></span></a>
+                                          </li>
+                                      </div>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>          
+                </div>
+            </div>
+        </div>
+
+        <!-- modal create -->
+        <div class="modal fade" id="exampleModalCenter">
+            <div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">កែតម្រូវព័ត៌មានបុគ្គលិក</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="">
+                            <div class="row">
+                                <div class="col-6 ">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="d-flex justify-content-center mb-4">
+                                                <img src="images/pic3.jpg"
+                                                    class="img-fluid rounded-circle" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mb-3">
+                                            <h5 class="modal-title">ព័ត៌មានផ្ទាល់ខ្លួន</h5>
+                                        </div>
+                                        <div class="col-6 ">
+                                            <div class="form-group ">
+                                                <label for="firstName">គោត្តនាម</label>
+                                                <input type="text" class="form-control" id="firstName"
+                                                    placeholder="ហិន">
+                                            </div>
+                                        </div>
+                                        <div class="col-6 ">
+                                            <div class="form-group ">
+                                                <label for="lastName">Last Name</label>
+                                                <input type="text" class="form-control" id="lastName"
+                                                    placeholder="Last Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-6  mt-3">
+                                            <div class="form-group ">
+                                                <label for="gender">Gender</label>
+                                                <select class="form-control" id="gender">
+                                                    <option value="male">Male</option>
+                                                    <option value="female">Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 mt-3">
+                                            <div class="form-group">
+                                                <label for="birthDate">Birth Date</label>
+                                                <input type="date" class="form-control" id="birthDate">
+                                            </div>
+                                        </div>
+                                        <div class="col-12  mt-3">
+                                            <div class="form-group">
+                                                <label for="numPhone">Phone</label>
+                                                <input type="text" class="form-control" id="numPhone"
+                                                    placeholder="01234567">
+                                            </div>
+                                        </div>
+                                        <div class="col-12  mt-3">
+                                            <div class="form-group">
+                                                <label for="address">Address</label>
+                                                <textarea class="form-control" id="address"
+                                                    rows="3">ផ្លូវ៥១២ ភូមិ១ បឹងកក់ទី១ ទួលគោក ភ្នំពេញ</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row ">
+                                        <div class="col-12 mb-3">
+                                            <h5 class="modal-title">ព័ត៌មានការងារ</h5>
+                                        </div>
+                                        <div class="col-12 ">
+                                            <div class="form-group ">
+                                                <label for="firstName">នាយកដ្ឋាន</label>
+                                                <select class="form-control" id="gender">
+                                                    <option value="អប់រំ">អប់រំ</option>
+                                                    <option value="អប់រំ">អប់រំ</option>
+
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <div class="form-group ">
+                                                <label for="position">មុខតំណែង</label>
+                                                <select class="form-control" id="gender">
+                                                    <option value="គ្រូបង្រៀន">គ្រូបង្រៀន</option>
+                                                    <option value="អប់រំ">អប់រំ</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12  mt-3">
+                                            <div class="form-group ">
+                                                <label for="payroll">ប្រាក់បៀវត្សន៍</label>
+                                                <input type="text" class="form-control" id="payroll"
+                                                    placeholder="300$">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <div class="form-group">
+                                                <label for="birthDate">ថ្ងៃចូលធ្វើការ</label>
+                                                <input type="date" class="form-control" id="birthDate">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <div class="form-group">
+                                                <label for="numPhone">CV</label>
+                                                <div class="input-group form-control">
+                                                    <div class="form-file border-0">
+                                                        <input type="file"
+                                                            class="form-file-input form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger light button-style py-0"
+                            data-bs-dismiss="modal">បោះបង់</button>
+                        <button type="button" class="btn btn-primary button-style py-0">រក្សាទុក</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal delete -->
+        <div class="modal fade" id="exampleModalCenter1">
+            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header border-0 mt-2">
+                        <div class="badge-danger light rounded px-3 py-2">
+                            <i class="bi bi-exclamation-circle fs-4 "></i>
+                        </div>
+                        
+                    </div>
+                    <input type="hidden" name="" id="resetPw">
+                    <div class="modal-body pt-0 mt-0">
+                        <h4 class="modal-title">កែប្រែលេខសម្ងាត់</h4>
+                        <p class="mb-0 pt-2"> សកម្មភាពនេះមិនអាចត្រឡប់វិញបានទេ។ </p>
+                    </div>
+                    <div class="px-4 d-flex mb-3">
+                        <button type="button" class="btn btn-danger me-2 w-50 light button-style py-0" data-bs-dismiss="modal">បោះបង់</button>
+                        <button type="button" id="reset" class="btn btn-primary w-50 py-0 button-style" data-bs-dismiss="modal">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="exampleModalCenter3">
+            <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">មើលលម្អិតកាតផ្ទាល់ខ្លួន</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal">
+                        </button>
+                    </div>
+                    <div class="modal-body align-items-center d-flex justify-content-center">
+                        <img src="images/card-emp.png" class="w-75" alt="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary text-white fs-4"
+                            data-bs-dismiss="modal"> <i class="bi bi-credit-card-2-front-fill me-3 fs-3"></i>Print Card</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <%- include('../partials/footer.ejs') %>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+        
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+        ***********************************-->
+    <%- include('../partials/logoutScr.ejs') %>
+    <script src="/js/user/user.js"></script>
+    
+</body>
+</html>
